@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ubicación — CCPAM</title>
+
+  <!-- Favicon/logo -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="logoccpam.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logoccpam.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logoccpam.png">
+  <meta name="theme-color" content="#2B7A3D">
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{ --verde:#2B7A3D; --verde-osc:#1F5B2E; --gris:#4B4F55; --gris-2:#5E6270; --borde:#E9ECEF; --maxw:1280px; --shadow:0 8px 24px rgba(0,0,0,.06); --verde-pastel:#EAF4EE; --verde-titulo:#206A3C; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--verde-pastel);color:var(--gris);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.7}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:5px}
+
+    /* Header (coherente con las demás páginas) */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--borde)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--verde-osc)}
+    .brand img{width:44px;height:44px;border-radius:10px}
+    .menu{display:none;gap:18px;align-items:center}
+    .menu>li{list-style:none;position:relative}
+    .menu>li>a{padding:8px 10px;border-radius:10px}
+    .menu>li:hover>a{background:#f7f9fb}
+    .submenu{position:absolute;left:0;top:120%;min-width:280px;background:#fff;border:1px solid var(--borde);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+    .menu>li:hover .submenu{display:block}
+    .submenu a{display:block;padding:8px 10px;border-radius:8px;color:#5E6270}
+    .submenu a:hover{background:#f6f7f9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--verde);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .btn--ghost{background:transparent;color:var(--verde);border:2px solid var(--verde)}
+    .hamb{width:42px;height:42px;border-radius:12px;border:1px solid var(--borde);display:grid;place-items:center;background:#fff}
+    .hamb span{display:block;width:20px;height:2px;background:#111;margin:3px 0;border-radius:2px}
+    @media (min-width:900px){.menu{display:flex}.hamb{display:none}}
+
+    /* Hero */
+    .hero{min-height:20vh;padding:20px 0;background:var(--verde-pastel);text-align:center;display:grid;place-items:center;position:relative}
+    .hero .container{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .hero-icon{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#EAF4EE;color:var(--verde-osc);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .hero-icon svg{width:28px;height:28px}
+    .h1{font-family:"Dancing Script", cursive;font-weight:700;color:var(--verde-osc);font-size:clamp(34px,5.5vw,58px);line-height:1.05;margin:0;letter-spacing:.2px}
+    .lead{font-family:"Dancing Script", cursive;font-weight:600;color:#2F3A34;font-size:clamp(22px,3.8vw,36px);margin:0;letter-spacing:.15px}
+
+    /* Sección ubicación */
+    .bloque{padding:20px 0}
+    .card{background:#fff;border-radius:22px;padding:18px 12px;box-shadow:0 18px 40px -18px rgba(0,0,0,.25)}
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){.grid{grid-template-columns:1.1fr .9fr;gap:20px}}
+
+    .mapa{border-radius:16px;overflow:hidden;border:1px solid #D7EADF}
+    .mapa iframe{width:100%;height:420px;border:0;display:block}
+
+    .info{background:var(--verde-pastel);border:1px solid #D7EADF;border-radius:14px;padding:16px}
+    .info h2{font-family:"Lora","Times New Roman",Georgia,serif;font-weight:700;color:var(--verde-titulo);font-size:clamp(1.3rem,1.05rem + .9vw,1.8rem);margin:0 0 10px}
+    .info ul{margin:0 0 12px 18px;padding:0}
+
+    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .cta .btn{padding:10px 14px}
+
+    /* Tarjetas de rutas */
+    .rutas{display:grid;gap:12px;margin-top:12px}
+    @media (min-width:900px){.rutas{grid-template-columns:repeat(2,1fr)}}
+    .ruta{background:#fff;border:1px solid #E9ECEF;border-radius:14px;padding:12px}
+    .ruta h3{margin:0 0 6px;font-size:1rem;color:var(--verde-osc)}
+    .ruta ul{margin:0 0 0 18px}
+
+    /* Footer (coherente) */
+    footer{background:#0E1A12;color:#CFE3D4;margin-top:36px}
+    .foot-wrap{border-top:1px solid #173321}
+    .foot-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0}
+    .foot-col{min-width:0}
+    .foot-title{color:#FFFFFF;margin:0 0 12px;font-weight:700}
+    .foot-list{list-style:none;padding:0;margin:0;line-height:1.9;word-break:break-word}
+    .foot-list a{color:#CFE3D4}
+    .foot-list a:hover{color:#FFFFFF}
+    .socials{display:flex;gap:14px;margin-top:8px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #254A30;border-radius:10px}
+    .socials svg{width:20px;height:20px;stroke:#E8F3EA}
+    .copyright{border-top:1px solid #173321;padding:14px 0;color:#9AB6A3;text-align:center;margin:0}
+    @media (min-width:900px){ .foot-grid{grid-template-columns:repeat(3, minmax(0,1fr)); align-items:start} .foot-col{padding-right:24px;border-right:1px solid #173321} .foot-col:last-child{border-right:none;padding-right:0} }
+      /*/* QR debajo del mapa */
+    .qr-mapa{display:flex;flex-direction:column;align-items:center;gap:10px;margin:12px 0 0;padding:12px;background:#F6FAF7;border:1px dashed #CFE6D6;border-radius:0 0 16px 16px;width:100%}
+    .qr-mapa img{width:140px;height:140px;border-radius:10px;border:1px solid #e5e7eb;object-fit:cover}
+    .qr-mapa p{margin:0;color:#5E6270;text-align:center;width:100%;font-weight:600}
+  }
+    .qr-mapa img{width:140px;height:140px;border-radius:10px;border:1px solid #e5e7eb;object-fit:cover}
+    .qr-mapa p{margin:0;color:#5E6270;text-align:center}
+  /* Hero: icono a la izquierda del título */
+    .hero-title{display:flex;align-items:center;gap:12px;justify-content:center}
+
+    /* QR: imagen a un lado y texto ocupa todo el ancho */
+    .qr-mapa{display:flex;flex-direction:row;align-items:center;gap:14px;margin:12px 0 0;padding:12px;background:#F6FAF7;border:1px dashed #CFE6D6;border-radius:0 0 16px 16px;width:100%}
+    .qr-mapa img{width:120px;height:120px;border-radius:10px;border:1px solid #e5e7eb;object-fit:cover;flex:0 0 auto}
+    .qr-mapa p{margin:0;color:#374151;text-align:left;font-weight:600;line-height:1.5;flex:1}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Principal">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoccpam.png" alt="CCPAM">
+      </div>
+      <ul class="menu" aria-label="Navegación principal">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a>
+          <div class="submenu" role="menu" aria-label="Submenú Quiénes somos">
+            <a href="historia.html">Historia</a>
+            <a href="identidad.html">Identidad institucional</a>
+            <a href="organigrama.html">Organigrama</a>
+            <a href="ubicacion.html" aria-current="page">Ubicación</a>
+          </div>
+        </li>
+        <li><a href="#">Nuestro trabajo</a>
+          <div class="submenu" role="menu" aria-label="Submenú Nuestro trabajo">
+            <a href="programamujer.html">Programa de Promoción de la Mujer</a>
+            <a href="tejidos.html">Centro de Tejidos a Mano y Máquina</a>
+            <a href="telares.html">Centros de Tejidos Artesanales en Telares</a>
+            <a href="corte_confeccion.html">Centros de Corte y Confección</a>
+            <a href="velas.html">Centro de Velas y de Cera de Pisos</a>
+            <a href="guarderia.html">Guardería Infantil</a>
+          </div>
+        </li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn" href="https://hwbolivien.weebly.com/" target="_blank" rel="noopener" aria-label="Donar">Donar</a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-title">
+          <div class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h1 class="h1">Dónde nos encontramos</h1>
+        </div>
+        <p class="lead">Ciudad de Sucre, Bolivia</p>
+      </div>
+    </section>
+
+    <!-- Ubicación + info -->
+    <section class="bloque">
+      <div class="container card grid">
+        <!-- Columna izquierda: mapa + QR -->
+        <div class="mapa" aria-label="Mapa de ubicación CCPAM">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.569183397856!2d-65.24605602654235!3d-19.03869648215822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93fbc8d4ac7aad41%3A0x58cafc8779a1d35f!2sPadre%20Sanauja%2C%20Sucre!5e0!3m2!1ses-419!2sbo!4v1761242246828!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <!-- QR debajo del mapa -->
+          <div class="qr-mapa" aria-label="Código QR para abrir la ruta en tu teléfono">
+            <img src="qr.jpg" alt="QR para abrir la ruta en Google Maps"/>
+            <p>Escanea el código con la cámara de tu teléfono para abrir la ruta en Google Maps.</p>
+          </div>
+        </div>
+
+        <!-- Columna derecha: información -->
+        <aside class="info">
+          <h2>Ubicación y atención al público</h2>
+          <p><strong>Dirección:</strong> Calle Padre Sanauaj #2, Sucre – Bolivia.</p>
+          <p>Sucre es la capital constitucional de Bolivia y, a la vez, la capital del Departamento de Chuquisaca. Es un municipio con marcada vocación administrativa, educativa y cultural, reconocido por su centro histórico y su arquitectura patrimonial. Su ubicación y tamaño urbano facilitan el acceso desde los barrios periurbanos hacia los principales servicios públicos, centros de estudio y espacios de atención social.</p>
+
+          <h2>Horarios de atención</h2>
+          <ul>
+            <li>Lunes a viernes: 08:30 – 12:30 y 14:30 – 18:30</li>
+          </ul>
+
+          <h2>Cómo llegar</h2>
+          <p>En esta página verás el mapa de Google Maps con la ubicación exacta y un código QR para abrir la ruta desde tu teléfono.</p>
+
+          <div class="cta">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Calle+Padre+Sanauaj+2%2C+Sucre%2C+Bolivia" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto" aria-label="Pie de página">
+    <div class="foot-wrap">
+      <div class="container foot-grid">
+        <div class="foot-col">
+          <h4 class="foot-title">Información de contacto</h4>
+          <ul class="foot-list">
+            <li>Calle Padre Sanauaj #2</li>
+            <li>(+591) 72887536</li>
+            <li>Sucre — Bolivia</li>
+            <li>Horario: Lunes a viernes: 08:30 – 12:30 y 14:30 – 18:30</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Documentos de interés</h4>
+          <ul class="foot-list">
+            <li><a href="#">Memorias Anuales</a></li>
+            <li><a href="#">Plan Estratégico 2019–2025</a></li>
+            <li><a href="#">Plan Trienal 2023–2025</a></li>
+            <li><a href="#">Curriculum Institucional</a></li>
+            <li><a href="#">Política de salvaguarda y protección de Niños, Niñas y Adolescentes</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Nuestras redes sociales</h4>
+          <div class="socials">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 9h3V6h-3a3 3 0 0 0-3 3v3H8v3h3v6h3v-6h3l1-3h-4V9a1 1 0 0 1 1-1Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M22 12s0-3-0.6-4.4a3 3 0 0 0-2-2C17 5 12 5 12 5s-5 0-7.4.6a3 3 0 0 0-2 2C2 9 2 12 2 12s0 3 .6 4.4a3 3 0 0 0 2 2C7 19 12 19 12 19s5 0 7.4-.6a3 3 0 0 0 2-2C22 15 22 12 22 12Z" stroke="currentColor"/>
+                <path d="M10 9l5 3-5 3V9Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 3v4a6 6 0 0 0 6 6" stroke="currentColor"/>
+                <path d="M14 10a5 5 0 1 0 0 10" stroke="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container"><p class="copyright">Copyright © 2025 CCPAM</p></div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil (igual a index)
+    const hamb = document.getElementById('hamb');
+    const menu = document.querySelector('.menu');
+    hamb?.addEventListener('click', ()=>{
+      if(getComputedStyle(menu).display === 'none'){
+        menu.style.display = 'flex';
+        menu.style.flexDirection='column';
+        menu.style.gap='8px';
+        menu.style.background='#fff';
+        menu.style.position='absolute';
+        menu.style.top='64px';
+        menu.style.left='16px';
+        menu.style.right='16px';
+        menu.style.padding='12px';
+        menu.style.border='1px solid #E9ECEF';
+        menu.style.borderRadius='12px';
+      }else{
+        menu.style.display='';
+        menu.removeAttribute('style');
+      }
+    });
+  </script>
+</body>
+</html>

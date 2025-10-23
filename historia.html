@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historia — CCPAM | Centros de Capacitación y Producción Artesanal de Mujeres</title>
+  <meta name="description" content="Historia de CCPAM: orígenes, fundadores, hitos y propósito institucional.">
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="logoccpam.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logoccpam.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logoccpam.png">
+  <meta name="theme-color" content="#2B7A3D">
+
+  <!-- Tipografías del sitio (estilo V3) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --verde:#2B7A3D; --verde-osc:#1F5B2E; --verde-pastel:#EAF4EE; --verde-linea:#5A9E79;
+      --gris:#4B4F55; --gris-2:#5E6270; --borde:#E9ECEF; --maxw:1280px; --shadow:0 8px 24px rgba(0,0,0,.06);
+      --rad:16px; --rad-lg:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#fff;color:var(--gris);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.7}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:12px}
+
+    /* Header (unificado) */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--borde)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--verde-osc)}
+    .brand img{width:44px;height:44px;border-radius:10px}
+    .menu{display:none;gap:18px;align-items:center}
+    .menu>li{list-style:none;position:relative}
+    .menu>li>a{padding:8px 10px;border-radius:10px}
+    .menu>li:hover>a{background:#f7f9fb}
+    .submenu{position:absolute;left:0;top:120%;min-width:280px;background:#fff;border:1px solid var(--borde);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+    .menu>li:hover .submenu{display:block}
+    .submenu a{display:block;padding:8px 10px;border-radius:8px;color:var(--gris-2)}
+    .submenu a:hover{background:#f6f7f9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--verde);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .btn--ghost{background:transparent;color:var(--verde);border:2px solid var(--verde)}
+    .hamb{width:42px;height:42px;border-radius:12px;border:1px solid var(--borde);display:grid;place-items:center;background:#fff}
+    .hamb span{display:block;width:20px;height:2px;background:#111;margin:3px 0;border-radius:2px}
+    @media (min-width:900px){.menu{display:flex}.hamb{display:none}}
+
+    /* Hero con hilos punteados (estilo V3) */
+    .hero{padding:32px 0 54px;background:var(--verde-pastel);text-align:center;position:relative}
+    .h1{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;color:var(--gris);font-size:clamp(34px,6vw,56px);line-height:1.12;margin:0 0 10px;text-transform:none;letter-spacing:.35px;text-shadow:0 2px 0 rgba(43,122,61,.35), 0 6px 18px rgba(43,122,61,.32), 0 18px 48px rgba(43,122,61,.28)}
+    .lead{font-family:"Playfair Display",serif;font-style:italic;font-weight:600;color:var(--gris);font-size:clamp(16px,2.4vw,22px);margin:6px 0 0;letter-spacing:.2px;text-shadow:0 1px 0 rgba(43,122,61,.28), 0 4px 14px rgba(43,122,61,.32), 0 14px 36px rgba(43,122,61,.28)}
+    .threads{display:none}
+    .threads .t{position:absolute;width:clamp(180px,30vw,420px);height:48px;opacity:.6;background-size:100% 100%;background-repeat:no-repeat}
+    .threads .t-left{left:6%;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='48' viewBox='0 0 420 48'><path d='M0,24 C140,6 280,42 420,24' fill='none' stroke='%235A9E79' stroke-width='2' stroke-linecap='round' stroke-dasharray='3 6'/></svg>")}
+    .threads .t-right{right:6%;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='48' viewBox='0 0 420 48'><path d='M420,24 C280,6 140,42 0,24' fill='none' stroke='%235A9E79' stroke-width='2' stroke-linecap='round' stroke-dasharray='3 6'/></svg>")}
+    @media (max-width:899px){ .threads{bottom:-10px;height:52px} .threads .t{width:60vw;height:36px;opacity:.5} }
+
+    /* Intro media card */
+    .intro{display:grid;grid-template-columns:minmax(420px,68ch) minmax(260px,360px);gap:32px;align-items:center;justify-content:center;justify-items:stretch;margin-top:16px;text-align:left}
+.hero-figure{align-self:center;display:flex;align-items:center;justify-content:flex-start}
+    .hero-card{position:relative;padding:10px;border-radius:22px;background:linear-gradient(#ffffff,#ffffff) padding-box,linear-gradient(135deg,#A8DCC0 0%,#2B7A3D 60%,#A8DCC0 100%) border-box;border:2px solid transparent;box-shadow:0 14px 32px rgba(43,122,61,.16),0 6px 18px rgba(0,0,0,.06);width:100%;max-width:340px}
+.hero-card::after{content:"";position:absolute;inset:-12px;border-radius:32px;background:radial-gradient(60% 60% at 50% 12%, rgba(43,122,61,.14), transparent 70%);z-index:-1;filter:blur(16px)}
+.hero-card img{border-radius:18px;display:block;width:100%;height:auto;transition:transform .35s ease}
+.hero-card:hover img{transform:scale(1.02)}
+    @media (max-width:960px){.intro{grid-template-columns:1fr;gap:16px;place-items:center;text-align:center}.hero-figure{justify-content:center}}}}}}
+
+    /* Bloque fundadores */
+    .founders{margin-top:18px;display:grid;gap:18px;grid-template-columns:1fr} @media (min-width:900px){.founders{grid-template-columns:repeat(2,1fr)}}
+    .founder{position:relative;padding:28px 24px 22px;border:1px solid transparent;border-radius:24px;background:linear-gradient(#ffffff,#ffffff) padding-box,linear-gradient(135deg,#A8DCC0 0%,#2B7A3D 60%,#A8DCC0 100%) border-box;box-shadow:0 12px 30px rgba(43,122,61,.10);text-align:center;transition:transform .25s ease, box-shadow .25s ease}
+.founder:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(43,122,61,.14)}
+    .avatar{width:100%;height:220px;border-radius:12px;overflow:hidden;border:3px solid #EEF3EF;margin-bottom:12px}
+    .founder h3{margin:.2rem 0;font-family:"Lora",serif;color:var(--verde-osc)}
+    .founder p{margin:0;color:#374151}
+
+    /* Timeline */
+    main{padding:18px 0 28px}
+    .timeline-wrap{position:relative;background:#F7F9F8;border:1px solid #E5E7EB;border-radius:16px;padding:24px 0;margin:18px 0}
+    .timeline{position:relative;max-width:var(--maxw);margin:0 auto;padding:0 12px}
+    .timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#E5E7EB;transform:translateX(-50%)}
+    .node{position:relative;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:24px;margin:26px 0}
+    .node .card{background:#fff;border:1px solid #E5E7EB;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.05);overflow:hidden}
+    .node .media{max-height:240px;overflow:hidden}
+    .node .body{padding:14px 16px}
+    .phase{font-size:.78rem;font-weight:800;letter-spacing:.06em;color:#111827}
+    .title{margin:.25rem 0 .45rem;font-size:1.12rem;font-family:"Lora",serif;color:var(--verde-osc)}
+    .desc{color:#374151;font-size:.98rem}
+    .side-meta{font-size:.82rem;color:#6b7280;margin-top:.45rem}
+    .marker{position:absolute;left:50%;top:1.1rem;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:999px;background:#fff;border:3px solid var(--verde);box-shadow:0 2px 6px rgba(0,0,0,.08)}
+    .year{position:absolute;left:50%;top:-.2rem;transform:translate(-50%,-100%);font-size:.8rem;font-weight:700;color:#374151;background:#fff;padding:.1rem .4rem;border-radius:.35rem;border:1px solid #e5e7eb}
+    .node--left .card{grid-column:1}
+    .node--right .card{grid-column:2}
+    @media (max-width: 960px){
+      .timeline:before{left:24px;transform:none}
+      .node{grid-template-columns:1fr}
+      .node--right .card, .node--left .card{grid-column:1}
+      .marker{left:24px}
+      .year{left:24px;transform:translateY(-100%)}
+    }
+
+    /* Footer (unificado) */
+    footer{background:#0E1A12;color:#CFE3D4;margin-top:36px;display:block;width:100%}
+    .foot-wrap{border-top:1px solid #173321}
+    .foot-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0}
+    .foot-col{min-width:0}
+    .foot-title{color:#FFFFFF;margin:0 0 12px;font-weight:700}
+    .foot-list{list-style:none;padding:0;margin:0;line-height:1.9;word-break:break-word}
+    .foot-list a{color:#CFE3D4}
+    .foot-list a:hover{color:#FFFFFF}
+    .socials{display:flex;gap:14px;margin-top:8px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #254A30;border-radius:10px}
+    .socials svg{width:20px;height:20px;stroke:#E8F3EA}
+    .copyright{border-top:1px solid #173321;padding:14px 0;color:#9AB6A3;text-align:center;margin:0}
+    /* Footer responsive igual a velas.html */
+    @media (min-width:900px){
+      .foot-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+      .foot-col{padding-right:24px;border-right:1px solid #173321}
+      .foot-col:last-child{border-right:none;padding-right:0}
+    }
+    /* Fundadores — versión vertical, nombre centrado en cursiva, rol debajo, foto circular grande, texto elegante */
+  .founders{margin-top:22px;display:grid;gap:22px;grid-template-columns:1fr}
+  @media (min-width:900px){.founders{grid-template-columns:repeat(2,1fr)}}
+  .founder{padding:24px;border:2px solid var(--verde);border-radius:20px;background:linear-gradient(180deg,#ffffff,#F7FBF8);box-shadow:0 10px 26px rgba(43,122,61,.08);text-align:center}
+  .founder-head{margin:0 0 10px;position:relative} .founder-head:after{content:"";display:block;width:72px;height:6px;margin:10px auto 0;border-radius:3px;background:linear-gradient(90deg,#2B7A3D,#9ED2B4)}
+  .founder-head h3{margin:0;font-family:"Playfair Display",serif;font-style:italic;font-weight:600;color:#4B4F55;font-size:clamp(28px,3vw,36px);line-height:1.1;letter-spacing:.2px}  
+  .founder-role{margin-top:4px;font-size:.92rem;letter-spacing:.16em;color:#2f6b47;font-variant-caps:all-small-caps} 
+  .founder .avatar{width:240px;height:240px;border-radius:999px;overflow:hidden;border:4px solid #2B7A3D;box-shadow:0 0 0 8px rgba(43,122,61,.10), 0 6px 18px rgba(0,0,0,.08);margin:16px auto;background:#fff} 
+  .founder .copy p{margin:0 auto;color:#5E646E;max-width:62ch;font-family:"Inter",sans-serif;font-size:1.04rem;line-height:1.92;text-align:justify;font-weight:400;letter-spacing:.15px} 
+  /* Fin fundadores */
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Principal">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoccpam.png" alt="CCPAM">
+      </div>
+      <ul class="menu" aria-label="Navegación principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a>
+          <div class="submenu" role="menu" aria-label="Submenú Quiénes somos">
+            <a href="historia.html">Historia</a>
+            <a href="identidad.html">Identidad institucional</a>
+            <a href="organigrama.html">Organigrama</a>
+            <a href="ubicacion.html">Ubicación</a>
+          </div>
+        </li>
+      <li><a href="#">Nuestro trabajo</a>
+          <div class="submenu" role="menu" aria-label="Submenú Nuestro trabajo">
+            <a href="programamujer.html">Programa de Promoción de la Mujer</a>
+            <a href="tejidos.html">Centro de Tejidos a Mano y Máquina</a>
+            <a href="telares.html">Centros de Tejidos Artesanales en Telares</a>
+            <a href="corte.html">Centros de Corte y Confección</a>
+            <a href="velas.html">Centro de Velas y de Cera de Pisos</a>
+            <a href="guarderia.html">Guardería Infantil</a>
+          </div>
+        </li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn" href="https://hwbolivien.weebly.com/" target="_blank" rel="noopener" aria-label="Donar">Donar</a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="intro">
+        <div>
+          <h1 class="h1">“Si la mujer es feliz, el niño también”</h1>
+          <p class="lead">CCPAM nació para que más mujeres de Chuquisaca transformen sus oficios en ingresos dignos, con formación, producción, salud y cuidado infantil.</p>
+        </div>
+        <div class="hero-figure">
+          <div class="hero-card">
+            <img src="historia/historia.jpg" alt="Archivo histórico de talleres CCPAM" />
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <!-- Fundadores -->
+  <section class="container" aria-label="Fundadores CCPAM" style="padding:18px 0 0">
+    <div class="founders">
+      <div class="founder">
+        <div class="founder-head">
+          <h3>Christa Steiger</h3>
+          <div class="founder-role">FUNDADORA</div>
+        </div>
+        <div class="avatar"><img src="historia/FUNDADORA.jpg" alt="Christa Steiger" style="width:100%;height:100%;object-fit:cover"/></div>
+        <div class="copy">
+          <p>Christa Steiger, nacida en Basilea, Suiza, es psicóloga de profesión y una mujer comprometida con el desarrollo humano y la igualdad de oportunidades. Desde su llegada a Bolivia, enfocó su labor en promover la autonomía económica y emocional de las mujeres, impulsando programas de capacitación técnica, orientación familiar, formación en valores y autoestima. Su convicción se resume en una frase que ha guiado el espíritu del CCPAM: “Formar es insuficiente sin el impulso inicial; una mujer necesita herramientas reales para transformar su vida”. Bajo su liderazgo, el CCPAM integró la capacitación técnica con el acompañamiento humano, creando espacios donde las mujeres aprenden, producen y recuperan su confianza.</p>
+        </div>
+      </div>
+      <div class="founder">
+        <div class="founder-head">
+          <h3>Alois Rafael Steiger</h3>
+          <div class="founder-role">FUNDADOR</div>
+        </div>
+        <div class="avatar"><img src="historia/fundador.jpg" alt="Alois Rafael Steiger" style="width:100%;height:100%;object-fit:cover"/></div>
+        <div class="copy">
+          <p>Alois Rafael Steiger, originario de Lucerna, Suiza, es doctor en Economía y especialista en proyectos de desarrollo internacional. Su experiencia permitió estructurar el componente de gestión, administración y sostenibilidad de los programas impulsados por Acción Suiza para Bolivia. Rafael fortaleció la planificación, la transparencia y la eficiencia de los recursos, asegurando que el impacto social llegue directamente a las familias y comunidades beneficiadas. Su visión combina rigurosidad técnica con un profundo sentido humano: promover proyectos que generen resultados concretos y duraderos en la vida de las personas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <main class="container">
+    <section class="timeline-wrap" aria-label="Línea de tiempo CCPAM">
+      <div class="timeline">
+
+        <!-- 1. Origen (izquierda) -->
+        <div class="node node--left">
+          <div class="card">
+            <div class="media"><img src="historia/faseinicial.jpg" alt="Primeros pasos de ayuda: familias y niños en comunidad"></div>
+            <div class="body">
+              <div class="phase">ORIGEN</div>
+              <h3 class="title">Primeros pasos de ayuda</h3>
+              <p class="desc">En 1990, los suizos Christa y Alois Rafael Steiger, sensibilizados por la situación de pobreza que afectaba a mujeres y familias en las zonas rurales del norte de Potosí y los barrios periféricos de Sucre, fundaron la Organización de Ayuda Boliviana – Acción Suiza para Bolivia. A partir de 1993, su labor se centró en el empoderamiento de la mujer, promoviendo la formación técnica, la autonomía económica y el desarrollo humano. De esa visión solidaria nació el Centro de Capacitación y Producción Artesanal de Mujeres (CCPAM), destinado a brindar oportunidades de capacitación y trabajo digno.</p>
+              <div class="side-meta">1990 — 1993</div>
+            </div>
+          </div>
+          <span class="marker" aria-hidden="true"></span>
+          <span class="year">1990–1993</span>
+        </div>
+
+        <!-- 2. Enfoque de empoderamiento (derecha) -->
+        <div class="node node--right">
+          <div class="card">
+            <div class="media"><img src="historia/enfoquemujer.jpg" alt="Enfoque del empoderamiento: talleres de tejido, costura y velas"></div>
+            <div class="body">
+              <div class="phase">CONSOLIDACIÓN DEL PROGRAMA</div>
+              <h3 class="title">Nace el enfoque de empoderamiento</h3>
+              <p class="desc">Durante esta etapa se crearon los primeros centros de capacitación y producción, especializados en tejido, costura y artesanía. El programa incorporó una guardería infantil para las hijas e hijos de las participantes y brindó apoyo psicológico, legal y educativo, contribuyendo a la estabilidad familiar. Asimismo, se promovieron valores de equidad de género, autogestión y solidaridad, consolidando al CCPAM como un espacio donde las mujeres fortalecen sus capacidades, su autoestima y su rol dentro de la comunidad.</p>
+              <div class="side-meta">1994 — 1999</div>
+            </div>
+          </div>
+          <span class="marker" aria-hidden="true"></span>
+          <span class="year">1994–1999</span>
+        </div>
+
+        <!-- 3. Institucionalización (izquierda) -->
+        <div class="node node--left">
+          <div class="card">
+            <div class="media"><img src="historia/ferias.jpg" alt="Formalización y personería jurídica"></div>
+            <div class="body">
+              <div class="phase">FORMALIZACIÓN Y PERSONERÍA JURÍDICA</div>
+              <h3 class="title">Institucionalización</h3>
+              <p class="desc">El fortalecimiento institucional alcanzó un hito decisivo el 21 de noviembre de 2005, cuando el CCPAM obtuvo su personería jurídica N.º 292/2005, otorgada por la Prefectura del Departamento de Chuquisaca, reconociéndolo oficialmente como una Institución Privada de Desarrollo Social (IPDS). Esta formalización marcó el inicio de una nueva etapa de crecimiento, transparencia y consolidación de su misión.</p>
+              <div class="side-meta">2000 — 2005</div>
+            </div>
+          </div>
+          <span class="marker" aria-hidden="true"></span>
+          <span class="year">2000–2005</span>
+        </div>
+
+        <!-- 4. Crecimiento (derecha) -->
+        <div class="node node--right">
+          <div class="card">
+            <div class="media"><img src="historia/diversificacion.jpg" alt="Crecimiento y expansión de programas"></div>
+            <div class="body">
+              <div class="phase">CRECIMIENTO Y EXPANSIÓN</div>
+              <h3 class="title">Crecimiento</h3>
+              <p class="desc">En estos años, el CCPAM consolidó su estructura productiva orientada a la capacitación técnica integral y a la generación de ingresos. La organización reforzó su modelo basado en la ayuda a la autoayuda, impulsando la iniciativa personal y la responsabilidad compartida. En paralelo, Acción Suiza para Bolivia amplió su apoyo al ámbito de la salud comunitaria, colaborando en la construcción y equipamiento del Hospital Popular del IPTK en beneficio de los barrios populares de Sucre.</p>
+              <div class="side-meta">2006 — 2009</div>
+            </div>
+          </div>
+          <span class="marker" aria-hidden="true"></span>
+          <span class="year">2006–2009</span>
+        </div>
+
+        <!-- 5. Madurez e impacto (izquierda) -->
+        <div class="node node--left">
+          <div class="card">
+            <div class="media"><img src="historia/impacto.jpg" alt="Impacto visible de los programas"></div>
+            <div class="body">
+              <div class="phase">MADUREZ E IMPACTO SOCIAL</div>
+              <h3 class="title">Impacto visible</h3>
+              <p class="desc">En su madurez institucional, el CCPAM reafirmó su misión de formar, fortalecer y empoderar a las mujeres para que se conviertan en agentes de cambio en sus hogares y comunidades. Cientos de participantes culminaron su formación en costura, tejido y gestión microempresarial, transformando sus aprendizajes en medios de vida sostenibles. El centro se consolidó como un referente en formación productiva con enfoque de género, combinando educación técnica, desarrollo humano y acompañamiento integral. Las alianzas con instituciones locales y organizaciones solidarias ampliaron el alcance de sus programas.</p>
+              <div class="side-meta">2010 — 2020</div>
+            </div>
+          </div>
+          <span class="marker" aria-hidden="true"></span>
+          <span class="year">2010–2020</span>
+        </div>
+
+        <!-- 6. Actualidad (derecha) -->
+        <div class="node node--right">
+          <div class="card">
+            <div class="media"><img src="historia/empoderamiento.jpg" alt="Actualidad y proyección a futuro"></div>
+            <div class="body">
+              <div class="phase">ACTUALIDAD Y PROYECCIÓN</div>
+              <h3 class="title">Sostenibilidad</h3>
+              <p class="desc">Actualmente, el CCPAM continúa su labor en la ciudad de Sucre con un equipo técnico boliviano comprometido y el acompañamiento de sus fundadores. La institución mantiene viva su misión de empoderar a las mujeres a través del trabajo digno, la formación técnica y la cooperación solidaria, adaptando sus estrategias a nuevas necesidades sociales. Más de tres décadas de servicio respaldan un legado de compromiso, esperanza y transformación que sigue abriendo oportunidades para las mujeres y sus familias.</p>
+              <div class="side-meta">2021 — Presente</div>
+            </div>
+          </div>
+          <span class="marker" aria-hidden="true"></span>
+          <span class="year">2021–Presente</span>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto" aria-label="Pie de página">
+    <div class="foot-wrap">
+      <div class="container foot-grid">
+        <div class="foot-col">
+          <h4 class="foot-title">Información de contacto</h4>
+          <ul class="foot-list">
+            <li>Calle Padre Sanauja #2</li>
+            <li>(+591) 72887536</li>
+            <li>Sucre — Bolivia</li>
+            <li>Horario: Lunes a Viernes</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Documentos de interés</h4>
+          <ul class="foot-list">
+            <li><a href="#">Memorias Anuales</a></li>
+            <li><a href="#">Plan Estratégico 2019–2025</a></li>
+            <li><a href="#">Plan Trienal 2023–2025</a></li>
+            <li><a href="#">Curriculum Institucional</a></li>
+            <li><a href="#">Política de salvaguarda y protección de Niños, Niñas y Adolescentes</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Nuestras redes sociales</h4>
+          <div class="socials">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true">
+                <path d="M14 9h3V6h-3a3 3 0 0 0-3 3v3H8v3h3v6h3v-6h3l1-3h-4V9a1 1 0 0 1 1-1Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true">
+                <path d="M22 12s0-3-.6-4.4a3 3 0 0 0-2-2C17 5 12 5 12 5s-5 0-7.4.6a3 3 0 0 0-2 2C2 9 2 12 2 12s0 3 .6 4.4a3 3 0 0 0 2 2C7 19 12 19 12 19s5 0 7.4-.6a3 3 0 0 0 2-2C22 15 22 12 22 12Z" stroke="currentColor"/>
+                <path d="M10 9l5 3-5 3V9Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true">
+                <path d="M14 3v4a6 6 0 0 0 6 6" stroke="currentColor"/>
+                <path d="M14 10a5 5 0 1 0 0 10" stroke="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container"><p class="copyright">Copyright © 2025 CCPAM</p></div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil (unificado)
+    const hamb = document.getElementById('hamb');
+    const menu = document.querySelector('.menu');
+    hamb?.addEventListener('click', ()=>{
+      if(getComputedStyle(menu).display === 'none'){
+        menu.style.display = 'flex';
+        menu.style.flexDirection='column';
+        menu.style.gap='8px';
+        menu.style.background='#fff';
+        menu.style.position='absolute';
+        menu.style.top='64px';
+        menu.style.left='16px';
+        menu.style.right='16px';
+        menu.style.padding='12px';
+        menu.style.border='1px solid #E9ECEF';
+        menu.style.borderRadius='12px';
+      }else{
+        menu.style.display='';
+        menu.removeAttribute('style');
+      }
+    });
+  </script>
+</body>
+</html>

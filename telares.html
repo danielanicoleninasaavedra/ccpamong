@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Centros de Tejidos Artesanales en Telares — CCPAM (Versión 3)</title>
+
+  <!-- Favicon/logo -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="logoccpam.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logoccpam.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logoccpam.png">
+  <meta name="theme-color" content="#2B7A3D">
+
+  <!-- Tipos de letra -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@700&family=Parisienne&display=swap" rel="stylesheet">
+
+  <style>
+    :root{ --verde:#2B7A3D; --verde-osc:#1F5B2E; --gris:#4B4F55; --gris-2:#5E6270; --borde:#E9ECEF; --maxw:1280px; --shadow:0 8px 24px rgba(0,0,0,.06); --verde-pastel:#EAF4EE; --verde-titulo:#206A3C; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--verde-pastel);color:var(--gris);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.7}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:5px}
+
+    /* Header (del index) */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--borde)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--verde-osc)}
+    .brand img{width:44px;height:44px;border-radius:10px}
+    .menu{display:none;gap:18px;align-items:center}
+    .menu>li{list-style:none;position:relative}
+    .menu>li>a{padding:8px 10px;border-radius:10px}
+    .menu>li:hover>a{background:#f7f9fb}
+    .submenu{position:absolute;left:0;top:120%;min-width:280px;background:#fff;border:1px solid var(--borde);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+    .menu>li:hover .submenu{display:block}
+    .submenu a{display:block;padding:8px 10px;border-radius:8px;color:#5E6270}
+    .submenu a:hover{background:#f6f7f9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--verde);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .btn--ghost{background:transparent;color:var(--verde);border:2px solid var(--verde)}
+    .hamb{width:42px;height:42px;border-radius:12px;border:1px solid var(--borde);display:grid;place-items:center;background:#fff}
+    .hamb span{display:block;width:20px;height:2px;background:#111;margin:3px 0;border-radius:2px}
+    @media (min-width:900px){.menu{display:flex}.hamb{display:none}}
+
+    /* Footer (del index) */
+    footer{background:#0E1A12;color:#CFE3D4;margin-top:36px}
+    .foot-wrap{border-top:1px solid #173321}
+    .foot-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0}
+    .foot-col{min-width:0}
+    .foot-title{color:#FFFFFF;margin:0 0 12px;font-weight:700}
+    .foot-list{list-style:none;padding:0;margin:0;line-height:1.9;word-break:break-word}
+    .foot-list a{color:#CFE3D4}
+    .foot-list a:hover{color:#FFFFFF}
+    .socials{display:flex;gap:14px;margin-top:8px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #254A30;border-radius:10px}
+    .socials svg{width:20px;height:20px;stroke:#E8F3EA}
+    .copyright{border-top:1px solid #173321;padding:14px 0;color:#9AB6A3;text-align:center;margin:0}
+    @media (min-width:900px){ .foot-grid{grid-template-columns:repeat(3, minmax(0,1fr)); align-items:start} .foot-col{padding-right:24px;border-right:1px solid #173321} .foot-col:last-child{border-right:none;padding-right:0} }
+
+    /* Hero con líneas punteadas */
+    .hero{min-height:22vh;padding:20px 0;background:var(--verde-pastel);color:var(--gris);text-align:center;display:grid;place-items:center;position:relative}
+    .h1{font-family:"Parisienne", cursive;font-weight:400;color:var(--gris);font-size:clamp(32px,5vw,54px);line-height:1.06;margin:0}
+    .lead{font-family:"Parisienne", cursive;font-weight:400;color:var(--gris);font-size:clamp(20px,3.6vw,34px);margin:2px 0 0}
+    .threads{position:absolute;left:0;right:0;bottom:-10px;height:64px;pointer-events:none}
+    .threads .t{position:absolute;width:clamp(180px,30vw,420px);height:48px;opacity:.6;background-size:100% 100%;background-repeat:no-repeat}
+    .threads .t-left{left:6%;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='48' viewBox='0 0 420 48'><path d='M0,24 C140,6 280,42 420,24' fill='none' stroke='%235A9E79' stroke-width='2' stroke-linecap='round' stroke-dasharray='3 6'/></svg>")}
+    .threads .t-right{right:6%;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='48' viewBox='0 0 420 48'><path d='M420,24 C280,6 140,42 0,24' fill='none' stroke='%235A9E79' stroke-width='2' stroke-linecap='round' stroke-dasharray='3 6'/></svg>")}
+    @media (max-width:899px){ .threads{bottom:-10px;height:52px} .threads .t{width:60vw;height:36px;opacity:.5} }
+
+    /* Bloques tipo postal: texto arriba + 4 fotos unidas */
+    .bloque{padding:20px 0}
+    .card{background:#fff;border-radius:22px;padding:18px 12px;box-shadow:0 18px 40px -18px rgba(0,0,0,.25)}
+    .stack{position:relative;display:grid;gap:12px}
+    .text{background:var(--verde-pastel);border:1px solid #D7EADF;border-radius:14px;padding:16px;position:relative;z-index:2}
+    .text h2{font-family:"Lora","Times New Roman",Georgia,serif;font-weight:700;color:var(--verde-titulo);font-size:clamp(1.4rem,1.05rem + 1vw,2rem);margin:0 0 10px}
+    .text p{margin:0 0 14px}
+
+    /* Hilos conectores */
+    .connectors{position:absolute;left:0;right:0;top:calc(100% - 120px);height:100px;z-index:1;pointer-events:none}
+    .wire{position:absolute;width:clamp(120px,16vw,220px);height:100%;opacity:.35;filter:drop-shadow(0 1px 0 rgba(0,0,0,.05));background-size:100% 100%;background-repeat:no-repeat}
+    .wire{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='100' viewBox='0 0 220 100'><path d='M0,0 C80,40 140,40 220,0' fill='none' stroke='%235A9E79' stroke-width='2' stroke-linecap='round' stroke-dasharray='4 6'/></svg>");}
+    .wire-1{left:6%}
+    .wire-2{left:31%}
+    .wire-3{left:56%}
+    .wire-4{left:81%}
+
+    /* Grilla 4 fotos completamente unidas */
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:16px;overflow:hidden;position:relative;z-index:0;line-height:0}
+    .tile{position:relative;margin:0;padding:0;border:0;outline:1px solid transparent}
+    .tile img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;vertical-align:middle}
+    .caption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg, rgba(31,91,46,.92), rgba(31,91,46,.55) 60%, rgba(31,91,46,0));color:#fff;padding:8px 10px 10px;font-weight:600;text-align:center;line-height:1.2}
+    .grid4 .tile, .grid4 img, .grid4 .caption{border-radius:0;box-shadow:none}
+
+    @media (max-width:899px){ .grid4{grid-template-columns:repeat(2,1fr)} .connectors{display:none} }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Principal">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoccpam.png" alt="CCPAM">
+      </div>
+      <ul class="menu" aria-label="Navegación principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a>
+          <div class="submenu" role="menu" aria-label="Submenú Quiénes somos">
+            <a href="historia.html">Historia</a>
+            <a href="identidad.html">Identidad institucional</a>
+            <a href="organigrama.html">Organigrama</a>
+            <a href="ubicacion.html">Ubicación</a>
+          </div>
+        </li>
+      <li><a href="#">Nuestro trabajo</a>
+          <div class="submenu" role="menu" aria-label="Submenú Nuestro trabajo">
+            <a href="programamujer.html">Programa de Promoción de la Mujer</a>
+            <a href="tejidos.html">Centro de Tejidos a Mano y Máquina</a>
+            <a href="telares.html">Centros de Tejidos Artesanales en Telares</a>
+            <a href="corte.html">Centros de Corte y Confección</a>
+            <a href="velas.html">Centro de Velas y de Cera de Pisos</a>
+            <a href="guarderia.html">Guardería Infantil</a>
+          </div>
+        </li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn" href="https://hwbolivien.weebly.com/" target="_blank" rel="noopener" aria-label="Donar">Donar</a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="h1">Centro de Tejidos Artesanales en Telares</h1>
+        <p class="lead">Tejer identidad: saberes ancestrales, oportunidades reales y futuro con dignidad.</p>
+      </div>
+      <div class="threads" aria-hidden="true">
+        <span class="t t-left"></span>
+        <span class="t t-right"></span>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: Tejer identidad -->
+    <section class="bloque">
+      <div class="container card stack">
+        <div class="text">
+          <h2>Tejer identidad</h2>
+          <p>El <strong>Centro de Tejidos Artesanales en Telares</strong> preserva saberes ancestrales y los transforma en oportunidades reales para mujeres de escasos recursos. Cada tejido es historia viva: colores, símbolos y técnicas que hablan de comunidad, memoria y futuro.</p>
+        </div>
+        <div class="connectors" aria-hidden="true">
+          <span class="wire wire-1"></span>
+          <span class="wire wire-2"></span>
+          <span class="wire wire-3"></span>
+          <span class="wire wire-4"></span>
+        </div>
+        <div class="grid4">
+          <figure class="tile"><img src="telares/telares3.jpg" alt="Urdimos sueños, punto a punto"><figcaption class="caption">Urdimos sueños, punto a punto.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares1.jpg" alt="El telar enseña paciencia y destino"><figcaption class="caption">El telar enseña paciencia y destino.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares4.jpg" alt="Color que nace de la tierra"><figcaption class="caption">Color que nace de la tierra.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares2.jpg" alt="La técnica sostiene la tradición"><figcaption class="caption">La técnica sostiene la tradición.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: Aprender haciendo -->
+    <section class="bloque">
+      <div class="container card stack">
+        <div class="text">
+          <h2>Aprender haciendo</h2>
+          <p>La formación se basa en la metodología <strong>“aprender haciendo”</strong>, con práctica guiada desde lo básico hasta piezas complejas:</p>
+          <ul>
+            <li><strong>Urdido y montaje de telar</strong> (de cintura y de pedal).</li>
+            <li><strong>Ligamentos y estructuras</strong>: tafetán, sarga, dobby básico.</li>
+            <li><strong>Tintes y acabados</strong>: coloración natural (cochinilla, nogal, eucalipto, añil), fijado y cuidado del tejido.</li>
+            <li><strong>Control de calidad</strong>: tensión, simetría, terminaciones y etiquetado.</li>
+            <li><strong>Costos y tiempos</strong>: cálculo de insumos, precio justo y trazabilidad.</li>
+          </ul>
+        </div>
+        <div class="connectors" aria-hidden="true">
+          <span class="wire wire-1"></span>
+          <span class="wire wire-2"></span>
+          <span class="wire wire-3"></span>
+          <span class="wire wire-4"></span>
+        </div>
+        <div class="grid4">
+          <figure class="tile"><img src="telares/telares5.jpg" alt="Aprender haciendo, tejer viviendo"><figcaption class="caption">Aprender haciendo, tejer viviendo.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares6.jpg" alt="Cada urdimbre, un paso adelante"><figcaption class="caption">Cada urdimbre, un paso adelante.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares7.jpg" alt="Tramas que hablan de nuestra historia"><figcaption class="caption">Tramas que hablan de nuestra historia.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares8.jpg" alt="Cada hebra encuentra su lugar"><figcaption class="caption">Cada hebra encuentra su lugar.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: Producción con identidad y calidad -->
+    <section class="bloque">
+      <div class="container card stack">
+        <div class="text">
+          <h2>Producción con identidad y calidad</h2>
+          <p>Textiles con identidad andina y altos estándares técnicos: chalinas, bufandas, mantas y tapices con fibras de alpaca y oveja; fajas y caminos de mesa con diseños tradicionales y contemporáneos; accesorios que respetan la estética local.</p>
+          <p>Cada pieza nace del dominio técnico y del orgullo cultural de sus creadoras.</p>
+        </div>
+        <div class="connectors" aria-hidden="true">
+          <span class="wire wire-1"></span>
+          <span class="wire wire-2"></span>
+          <span class="wire wire-3"></span>
+          <span class="wire wire-4"></span>
+        </div>
+        <div class="grid4">
+          <figure class="tile"><img src="telares/telares11.jpg" alt="Del telar a tu hogar, con identidad"><figcaption class="caption">Del telar a tu hogar, con identidad.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares12.jpg" alt="Precio justo, valor infinito"><figcaption class="caption">Precio justo, valor infinito.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares13.jpg" alt="Hecho a mano, con orgullo"><figcaption class="caption">Hecho a mano, con orgullo.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares14.jpg" alt="Cuando compras local, tejes comunidad"><figcaption class="caption">Cuando compras local, tejes comunidad.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 4: Del telar al mercado + Cuidar lo nuestro + Tejer para vivir bien -->
+    <section class="bloque">
+      <div class="container card stack">
+        <div class="text">
+          <h2>Del telar al mercado</h2>
+          <p>Impulsamos la <strong>comercialización solidaria</strong> y el <strong>emprendimiento</strong>: venta en la tienda institucional y ferias, articulación con turismo cultural y tiendas responsables, y acompañamiento en marca, empaque y narrativa del producto.</p>
+          <p>Prácticas sostenibles: preferencia por fibras naturales y proveedores locales; tintes ecológicos y manejo responsable del agua; reutilización de mermas en pequeñas piezas o apliques.</p>
+            <p>Tejer es autonomía, memoria y futuro. En cada urdido hay un proyecto de vida; en cada remate, la certeza de que el trabajo digno transforma familias y comunidades.</p>
+          <p><em>“Entre hilos y memoria, una mujer teje su propio destino.”</em></p>
+        </div>
+        <div class="connectors" aria-hidden="true">
+          <span class="wire wire-1"></span>
+          <span class="wire wire-2"></span>
+          <span class="wire wire-3"></span>
+          <span class="wire wire-4"></span>
+        </div>
+        <div class="grid4">
+          <figure class="tile"><img src="telares/telares15.jpg" alt="El trabajo digno abriga futuros"><figcaption class="caption">El trabajo digno abriga futuros.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares16.jpg" alt="Una mujer que teje, inspira a otra"><figcaption class="caption">Una mujer que teje, inspira a otra.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares17.jpg" alt="Cultura viva en cada tejido"><figcaption class="caption">Cultura viva en cada tejido.</figcaption></figure>
+          <figure class="tile"><img src="telares/telares18.jpg" alt="Tejer es construir el Vivir Bien"><figcaption class="caption">Tejer es construir el Vivir Bien.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto" aria-label="Pie de página">
+    <div class="foot-wrap">
+      <div class="container foot-grid">
+        <div class="foot-col">
+          <h4 class="foot-title">Información de contacto</h4>
+          <ul class="foot-list">
+            <li>Calle Padre Sanauja #2</li>
+            <li>(+591) 72887536</li>
+            <li>Sucre — Bolivia</li>
+            <li>Horario: Lunes a Viernes</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Documentos de interés</h4>
+          <ul class="foot-list">
+            <li><a href="#">Memorias Anuales</a></li>
+            <li><a href="#">Plan Estratégico 2019–2025</a></li>
+            <li><a href="#">Plan Trienal 2023–2025</a></li>
+            <li><a href="#">Curriculum Institucional</a></li>
+            <li><a href="#">Política de salvaguarda y protección de Niños, Niñas y Adolescentes</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Nuestras redes sociales</h4>
+          <div class="socials">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 9h3V6h-3a3 3 0 0 0-3 3v3H8v3h3v6h3v-6h3l1-3h-4V9a1 1 0 0 1 1-1Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M22 12s0-3-0.6-4.4a3 3 0 0 0-2-2C17 5 12 5 12 5s-5 0-7.4.6a3 3 0 0 0-2 2C2 9 2 12 2 12s0 3 .6 4.4a3 3 0 0 0 2 2C7 19 12 19 12 19s5 0 7.4-.6a3 3 0 0 0 2-2C22 15 22 12 22 12Z" stroke="currentColor"/>
+                <path d="M10 9l5 3-5 3V9Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 3v4a6 6 0 0 0 6 6" stroke="currentColor"/>
+                <path d="M14 10a5 5 0 1 0 0 10" stroke="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container"><p class="copyright">Copyright © 2025 CCPAM</p></div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil (igual a index)
+    const hamb = document.getElementById('hamb');
+    const menu = document.querySelector('.menu');
+    hamb?.addEventListener('click', ()=>{
+      if(getComputedStyle(menu).display === 'none'){
+        menu.style.display = 'flex';
+        menu.style.flexDirection='column';
+        menu.style.gap='8px';
+        menu.style.background='#fff';
+        menu.style.position='absolute';
+        menu.style.top='64px';
+        menu.style.left='16px';
+        menu.style.right='16px';
+        menu.style.padding='12px';
+        menu.style.border='1px solid #E9ECEF';
+        menu.style.borderRadius='12px';
+      }else{
+        menu.style.display='';
+        menu.removeAttribute('style');
+      }
+    });
+  </script>
+</body>
+</html>

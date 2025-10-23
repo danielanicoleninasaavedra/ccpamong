@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang='es'><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Identidad Institucional — CCPAM</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="logoccpam.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logoccpam.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logoccpam.png">
+  <meta name="theme-color" content="#2B7A3D">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=optional" rel="stylesheet">
+  <style>
+    :root{--verde:#2B7A3D;--verde-osc:#1F5B2E;--crema:#F8F5EF;--gris:#2B2B2B;--gris-2:#5E6270;--borde:#E9ECEF;--maxw:1200px;--rad:16px;--shadow:0 8px 24px rgba(0,0,0,.06);--foot-line:#173321;}
+    *{box-sizing:border-box} html,body{margin:0;background:#fff;color:var(--gris);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    img{max-width:100%;height:auto;display:block;border-radius:12px} a{text-decoration:none;color:inherit}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:16px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--borde)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--verde-osc)}
+    .brand img{width:44px;height:44px;border-radius:10px}
+    .menu{display:none;gap:18px;align-items:center}
+    .menu>li{list-style:none;position:relative}
+    .menu>li>a{padding:8px 10px;border-radius:10px}
+    .menu>li:hover>a{background:#f7f9fb}
+    .submenu{position:absolute;left:0;top:120%;min-width:280px;background:#fff;border:1px solid var(--borde);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+    .menu>li:hover .submenu{display:block}
+    .submenu a{display:block;padding:8px 10px;border-radius:8px;color:var(--gris-2)}
+    .submenu a:hover{background:#f6f7f9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--verde);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .btn--ghost{background:transparent;color:var(--verde);border:2px solid var(--verde)}
+    .hamb{width:42px;height:42px;border-radius:12px;border:1px solid var(--borde);display:grid;place-items:center;background:#fff}
+    .hamb span{display:block;width:20px;height:2px;background:#111;margin:3px 0;border-radius:2px}
+
+    /* Hero */
+    .hero{background:var(--crema);padding:56px 0;text-align:center}
+    .h1{font-family:"Playfair Display",serif;color:var(--verde-osc);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.15;margin:0 0 12px}
+    .lead{max-width:780px;margin:0 auto;color:var(--gris-2)}
+
+    /* Secciones */
+    section{padding:28px 0}
+    .section-title{font-family:"Playfair Display",serif;color:var(--verde-osc);font-size:clamp(24px,3vw,34px);margin:0}
+    .section-sub{color:var(--gris-2);margin:6px 0 14px}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:1fr}
+    .card{background:#fff;border:1px solid var(--borde);border-radius:var(--rad);padding:18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
+    .card h3{margin:0 0 6px;font-size:1.05rem;color:var(--verde-osc)}
+    .muted{color:var(--gris-2)}
+    .icon{width:44px;height:44px;border-radius:50%;background:#EEF7F0;display:grid;place-items:center;flex:0 0 auto}
+    .icon svg{width:24px;height:24px;stroke:var(--verde-osc)}
+
+    /* Bolivia */
+    #bolivia{padding:36px 0}
+    .bolivia-wrap{background:var(--crema);border-radius:var(--rad);padding:16px}
+    .bolivia-grid{display:grid;gap:16px;align-items:center}
+    .bolivia-text{max-width:720px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .chip{padding:6px 10px;border:1px solid var(--borde);border-radius:999px;font-size:.9rem;background:#fff}
+    .globe{width:clamp(160px, 20vw, 260px);aspect-ratio:1;margin-inline:auto;display:block;box-shadow:var(--shadow);border-radius:50%;object-fit:contain;background:radial-gradient(#e9f3ec,#f8f5ef)}
+
+    /* Impacto */
+    .impact-grid{display:grid;gap:22px;align-items:center}
+    .impact-grid .content-photo{width:100%;max-width:640px;margin:0;border-radius:12px;box-shadow:var(--shadow)}
+
+    /* Footer */
+    footer{background:#0E1A12;color:#CFE3D4}
+    .foot-wrap{border-top:1px solid var(--foot-line)}
+    .foot-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0}
+    .foot-col{min-width:0}
+    .foot-title{color:#FFFFFF;margin:0 0 12px;font-weight:700}
+    .foot-list{list-style:none;padding:0;margin:0;line-height:1.9;word-break:break-word}
+    .foot-list a{color:#CFE3D4}
+    .foot-list a:hover{color:#FFFFFF}
+    .socials{display:flex;gap:14px;margin-top:8px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #254A30;border-radius:10px}
+    .socials svg{width:20px;height:20px;stroke:#E8F3EA}
+    .copyright{border-top:1px solid var(--foot-line);padding:14px 0;color:#9AB6A3;text-align:center}
+
+    /* Desktop */
+    @media (min-width:900px){
+      .menu{display:flex} .hamb{display:none}
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+      .bolivia-grid{grid-template-columns:1.6fr .8fr}
+      .impact-grid{grid-template-columns:1.1fr .9fr}
+      .foot-grid{grid-template-columns:repeat(3, minmax(0,1fr)); align-items:start}
+      .foot-col{padding-right:24px;border-right:1px solid var(--foot-line)}
+      .foot-col:last-child{border-right:none;padding-right:0}
+    }
+  
+/* === Icon size & elegant motion === */
+.ii-svg{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px);fill:#6b7280;flex:0 0 auto;transform-origin:50% 50%;filter:drop-shadow(0 3px 6px rgba(0,0,0,.16));}
+.ii-anim-spin{animation:ii-spin 10s linear infinite}
+.ii-anim-bounce{animation:ii-bounce 3s ease-in-out infinite}
+/* accelerate on hover */
+.ii-card:hover .ii-anim-spin{animation-duration:2s}
+.ii-card:hover .ii-anim-bounce{animation-duration:1.3s}
+@keyframes ii-spin{from{transform:rotate(0deg)} to{transform:rotate(360deg)}}
+@keyframes ii-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion: reduce){.ii-anim-spin,.ii-anim-bounce{animation:none}}
+.ii-card:hover .ii-svg{ fill:#2B7A3D }
+/* === Elegant banner === */
+.ii-hero{padding:1.6rem 1rem 0;background:#EAF5EE; color:var(--verde-osc)}
+.ii-hero .ii-wrap h1{margin:0 0 .35rem;font-weight:700;letter-spacing:.2px;font-size:clamp(2rem,4.5vw,3rem); color:var(--verde-osc); font-family:'Dancing Script', cursive; font-style: normal; text-align:center}  
+.ii-sub{color:#5f6b78;margin:0 0 .8rem}
+.ii-banner{position:relative;border-radius:18px;overflow:hidden;height:clamp(220px,28vw,400px);box-shadow:0 18px 40px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.06)}
+.ii-banner::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.15) 30%, rgba(0,0,0,.25));z-index:1}
+.ii-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%; filter:contrast(1.02) saturate(1.05);}
+.ii-banner .ii-caption{position:absolute;z-index:2;bottom:14px;left:16px;color:#fff;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+@media (max-width: 640px){ .ii-banner .ii-caption{font-size:.95rem} }
+
+  /* Scoped styles (ii- prefix) */
+  .ii-wrap{max-width:1200px;margin:0 auto;padding:1rem 1rem 1.6rem}
+  .ii-hero{position:relative;padding:2rem 1rem 1rem;background:#EAF5EE; color:var(--verde-osc)}
+  .ii-hero h1{margin:0;font-weight:700;letter-spacing:.2px;font-size:clamp(2rem,4.5vw,3rem); color:var(--verde-osc); font-family:'Dancing Script', cursive; font-style: normal; text-align:center}  
+  .ii-hero p.lead{max-width:980px;color:var(--verde-osc);margin:.5rem 0 0}
+  .ii-hero .ii-wrap{text-align:center}
+  .ii-intro{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:1.2rem;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+
+  .ii-accordion{margin:1.25rem 0;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb}
+  .ii-accordion details{background:#f7f7f7}
+  .ii-accordion details + details{border-top:1px solid #e5e7eb}
+  .ii-accordion summary{cursor:pointer;list-style:none;font-weight:700;padding:0.9rem 1rem;display:flex;align-items:center;gap:.5rem}
+  .ii-accordion summary::-webkit-details-marker{display:none}
+  .ii-arrow{transition:transform .25s ease}
+  .ii-accordion details[open] .ii-arrow{transform:rotate(90deg)}
+  .ii-panel{background:#fff;padding:1rem 1.25rem;border-top:1px solid #ececec;color:#334155}
+
+  .ii-cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:1rem}
+  .ii-card{background:#ffffff;border:1px solid #e6e6e6;border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .ii-card h3{margin:.2rem 0 .45rem;font-size:1.02rem;letter-spacing:.2px;color:#1f2937;display:flex;align-items:center;gap:.5rem}
+  .ii-card p{color:#374151}
+  @media (min-width: 900px){ .ii-cards{grid-template-columns:repeat(4,1fr)} }
+    /* Gallery (solo centrada y sin afectar el resto) */
+  .ii-gallery{display:grid;gap:12px;margin:.4rem auto 6px;justify-content:center;justify-items:center;grid-template-columns:1fr;max-width:1000px}
+  .ii-gallery figure{margin:0;width:100%;max-width:380px}
+  .ii-gallery .ph{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.08)}
+  .ii-gallery .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .ii-gallery figcaption{font-size:.9rem;color:#475569;margin-top:.35rem;text-align:center}
+  @media(min-width:900px){.ii-gallery{grid-template-columns:repeat(2, minmax(320px, 460px));margin-left:auto;margin-right:auto}}
+  /* Galería: aspecto homogéneo en móviles */
+  @media(max-width:640px){.ii-gallery .ph{aspect-ratio:4/3}}
+
+/* === Pill cards (Misión, Visión, etc.) === */
+.ii-intro p{ text-align: justify }
+.ii-pillcards{display:grid;gap:12px;grid-template-columns:1fr;margin-top:10px}
+
+
+
+/* Rectangulares como la tarjeta de introducción */
+.ii-pillcard{background:#F1FAF5;border:1px solid #D7EDE1;border-radius:14px;padding:.9rem;box-shadow:0 6px 18px rgba(0,0,0,.05);min-height:128px;display:flex;flex-direction:column;gap:6px}
+.ii-pillcard h3{margin:0 0 6px;color:#1F5B2E;font-weight:700}
+.ii-pillcard p{margin:0;color:#334155;text-align:justify}
+
+/* Tonos alternados (solo dos verdes intercalados) */
+.ii-pillcards .ii-pillcard:nth-child(odd){background:#DDF3E7;border-color:#BFDCCD}
+.ii-pillcards .ii-pillcard:nth-child(even){background:#CBE7D8;border-color:#A9D2BF}
+
+
+.ii-pillcards .ii-pillcard:nth-child(even){background:#CBE7D8;border-color:#A9D2BF}
+
+/* Subrayado elegante en todos los títulos (alternado) */
+.ii-pillcards .ii-pillcard h3{position:relative}
+.ii-pillcards .ii-pillcard h3::after{
+  content:"";display:block;width:110px;height:4px;border-radius:3px;margin-top:6px;
+  background:linear-gradient(90deg,#1F5B2E,#4FAF7D);
+  opacity:.95
+}
+.ii-pillcards .ii-pillcard:nth-child(even) h3::after{
+  background:linear-gradient(90deg,#1F5B2E,#2B7A3D)
+}
+
+/* === Identidad Ideológica cards === */
+.ii-ideotitle{ text-align:center; font-family:'Dancing Script', cursive; font-weight:700; color:#1F5B2E; margin:8px 0 6px }
+.ii-ideosub{ text-align:center; font-style:italic; color:#5f6b78; margin:2px 0 8px }
+.ideo-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:900px){.ideo-grid{grid-template-columns:repeat(4,1fr)}}
+.ideo-card{background:#F1FAF5;border:1px solid #D9EFE2;border-radius:16px;padding:16px;box-shadow:0 6px 16px rgba(25,75,45,.06)}
+.ideo-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.ideo-icon{width:44px;height:44px;border-radius:12px;background:#EAF5EE;display:grid;place-items:center;flex:0 0 auto}
+.ideo-icon svg{width:22px;height:22px;fill:#1F5B2E}
+.ideo-badge{display:inline-block;background:#2B7A3D;color:#fff;border-radius:999px;padding:4px 10px;font-size:.8rem;font-weight:700;box-shadow:var(--shadow);position:relative;top:-6px}
+.ideo-title{margin:0;color:#1F5B2E;font-size:1.05rem;text-transform:uppercase;letter-spacing:.5px;position:relative}
+.ideo-title::after{content:"";display:block;width:110px;height:4px;border-radius:3px;margin-top:6px;background:linear-gradient(90deg,#1F5B2E,#4FAF7D);opacity:.95}
+.ideo-card p{margin:0;color:#334155}
+
+/* Espaciado fino entre Identidad Ideológica y la galería */
+section[aria-labelledby="ideologia"]{padding-top:6px;padding-bottom:6px}
+#galeria .ii-wrap{padding-top:8px}
+#galeria .ii-gallery{margin-top:4px}
+
+
+.h1{
+  font-family: 'Dancing Script', 'Segoe Script', 'Apple Chancery',
+               'Comic Sans MS', cursive;
+  font-size-adjust: 0.50;         /* reduce el “brinco” al cambiar de fuente */
+  font-synthesis-weight: none;     /* no “engordar” artificialmente */
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=optional" rel="stylesheet">
+
+
+</head>
+<body id="top">
+  <header aria-label="Principal">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoccpam.png" alt="Logotipo de CCPAM">
+        <span>CCPAM</span>
+      </div>
+      <ul class="menu" aria-label="Navegación principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Quién somos</a>
+          <div class="submenu" role="menu" aria-label="Submenú Quién somos">
+            <a href="historia.html">Historia</a>
+            <a href="identidad.html">Identidad institucional</a>
+            <a href="organigrama.html">Organigrama</a>
+            <a href="ubicacion.html">Ubicación</a>
+          </div>
+        </li>
+        <li><a href="#">Nuestro trabajo</a>
+          <div class="submenu" role="menu" aria-label="Submenú Nuestro trabajo">
+            <a href="programamujer.html">Programa de Promoción de la Mujer</a>
+            <a href="tejidos.html">Centro de Tejidos a Mano y Máquina</a>
+            <a href="telares.html">Centros de Tejidos Artesanales en Telares</a>
+            <a href="corte.html">Centros de Corte y Confección</a>
+            <a href="velas.html">Centro de Velas y de Cera de Pisos</a>
+            <a href="guarderia.html">Guardería Infantil</a>
+          </div>
+        </li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn" href="https://hwbolivien.weebly.com/" target="_blank" rel="noopener" aria-label="Donar (abre en nueva pestaña)">Donar</a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <main>
+<section class="ii-hero">
+  <div class="ii-wrap">
+    <h1>Identidad Institucional</h1>
+  </div>
+</section>
+
+
+<div class="ii-wrap">
+  <div class="ii-intro">
+    <p>El <strong>Centro de Capacitación y Producción Artesanal de Mujeres (CCPAM)</strong> es una institución privada, de carácter social, sin fines de lucro, independiente del Estado, de la Iglesia, de los partidos políticos, de las empresas económicas y de organizaciones extranjeras.</p>
+    <p>Es un instrumento social de emancipación, creado para impulsar el <strong>desarrollo integral de las mujeres migrantes de escasos recursos económicos</strong> y, a través de ellas, de sus familias y comunidades. Su acción busca un <strong>cambio cualitativo y transformador</strong> en la realidad social y económica de los barrios periurbanos de la ciudad de Sucre, generando condiciones para la dignidad, la igualdad de oportunidades y la construcción del <em>Vivir Bien</em>.</p>
+  </div>
+</div>
+
+
+<div class="ii-wrap">
+  <div class="ii-pillcards" aria-label="Secciones de identidad institucional">
+    <article class="ii-pillcard">
+      <h3>Misión</h3>
+      <p>Servir a las personas y familias de escasos recursos económicos mediante la <strong>formación técnica productiva</strong>, el fortalecimiento de <strong>capacidades emprendedoras</strong> y la mejora de la <strong>autoestima</strong> y la <strong>autovaloración</strong>, de modo que puedan iniciar sus propios emprendimientos, generar ingresos sostenibles y mejorar sus condiciones de vida.</p>
+    </article>
+    <article class="ii-pillcard">
+      <h3>Visión</h3>
+      <p>Lograr que las <strong>mujeres migrantes</strong>, junto a sus familias, desarrollen plenamente sus <strong>capacidades productivas y técnicas</strong>, convirtiéndose en protagonistas activas de su propio desarrollo y alcanzando una mejor <strong>calidad de vida</strong>.</p>
+    </article>
+    <article class="ii-pillcard">
+      <h3>Servicio</h3>
+      <p>El CCPAM ofrece procesos formativos de calidad orientados a la obtención de <strong>mano de obra calificada</strong>, la creación y consolidación de <strong>microempresas</strong> y el fortalecimiento de la <strong>economía familiar y comunitaria</strong>.</p>
+    </article>
+    <article class="ii-pillcard">
+      <h3>Solución</h3>
+      <p>Nuestra intervención responde a la <strong>exclusión social y económica</strong>. Formamos, acompañamos y empoderamos a mujeres en situación de vulnerabilidad para que <strong>transformen su realidad</strong> y se conviertan en <strong>agentes de desarrollo</strong> en sus comunidades.</p>
+    </article>
+    <article class="ii-pillcard">
+      <h3>Cambio</h3>
+      <p>Impulsamos un cambio integral: adquisición de <strong>competencias técnicas</strong>, fortalecimiento de la <strong>autoestima</strong>, <strong>independencia económica</strong> y <strong>participación social</strong>, rompiendo ciclos de pobreza y marginación.</p>
+    </article>
+    <article class="ii-pillcard">
+      <h3>Valores institucionales</h3>
+      <p><strong>Respeto</strong>: personas, culturas y naturaleza. <strong>Solidaridad</strong>: con quienes están en vulnerabilidad. <strong>Honestidad</strong>: integridad a toda prueba. <strong>Compromiso</strong>: coherencia, servicio y lealtad. <strong>Excelencia</strong>: mejora continua para mayor impacto.</p>
+    </article>
+  </div>
+</div>
+
+<section aria-labelledby="ideologia">
+  <div class="ii-wrap">
+    <h2 id="ideologia" class="ii-ideotitle">Identidad Ideológica</h2>
+    <p class="ii-ideosub">Cuatro fundamentos representados con iconos claros y tarjetas destacadas.</p>
+    <div class="ideo-grid">
+      <article class="ideo-card">
+        <span class="ideo-badge">01</span>
+        <div class="ideo-head">
+          <div class="ideo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-3.5 5-6 8.4-6 11.5A6 6 0 0012 20a6 6 0 006-6.5C18 10.4 15.5 7 12 2z"/></svg>
+          </div>
+          <h3 class="ideo-title">Sangre</h3>
+        </div>
+        <p>Energía creadora y trabajo de las mujeres; motor que impulsa la producción y el emprendimiento local.</p>
+      </article>
+      <article class="ideo-card">
+        <span class="ideo-badge">02</span>
+        <div class="ideo-head">
+          <div class="ideo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-7.6C.9 10.2 2.2 6.8 5.1 6c2-.6 3.8.2 4.9 1.6C11.1 6.2 13 5.4 15 6c2.9.8 4.2 4.2 2.4 7.4C19 16.4 12 21 12 21z"/></svg>
+          </div>
+          <h3 class="ideo-title">Corazón</h3>
+        </div>
+        <p>Solidaridad, esperanza y compromiso de cambio; ética del cuidado y servicio a la comunidad.</p>
+      </article>
+      <article class="ideo-card">
+        <span class="ideo-badge">03</span>
+        <div class="ideo-head">
+          <div class="ideo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 5a3 3 0 00-3 3v2a3 3 0 003 3v5a2 2 0 002 2h2V5H9a3 3 0 00-2 0zM17 5a3 3 0 013 3v2a3 3 0 01-3 3v5a2 2 0 01-2 2h-2V5h2a3 3 0 012 0z"/></svg>
+          </div>
+          <h3 class="ideo-title">Cerebro</h3>
+        </div>
+        <p>Conocimiento, formación técnica y capacidad de emprender; base de la autonomía económica sostenible.</p>
+      </article>
+      <article class="ideo-card">
+        <span class="ideo-badge">04</span>
+        <div class="ideo-head">
+          <div class="ideo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 14a4 4 0 100-8 4 4 0 000 8z"/><path d="M4 20a8 8 0 0116 0v1H4v-1z"/></svg>
+          </div>
+          <h3 class="ideo-title">Vivir Bien</h3>
+        </div>
+        <p>Horizonte de dignidad y bienestar colectivo; equilibrio entre desarrollo humano, comunidad y naturaleza.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="ii-wrap" id="galeria">
+  <div class="ii-gallery" aria-label="Galería institucional">
+    <figure>
+      <div class="ph">
+        <img src="identidad/identidad1.jpg" alt="Niñas y niños con educadoras en un mural" loading="lazy" decoding="async">
+      </div>
+      <figcaption>Primeros años de trabajo comunitario.</figcaption>
+    </figure>
+    <figure>
+      <div class="ph">
+        <img src="identidad/identidad2.jpg" alt="Grupo de mujeres del CCPAM en actividad" loading="lazy" decoding="async">
+      </div>
+      <figcaption>Fortalecimiento organizativo de las mujeres.</figcaption>
+    </figure>
+  </div>
+</div>
+</main><footer id="contacto" aria-label="Pie de página">
+    <div class="foot-wrap">
+      <div class="container foot-grid">
+        <div class="foot-col">
+          <h4 class="foot-title">Información de contacto</h4>
+          <ul class="foot-list">
+            <li>Calle Padre Sanauja #2</li>
+            <li>(+591) 72887536</li>
+            <li>Sucre — Bolivia</li>
+            <li>Horario: Lunes a Viernes</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Documentos de interés</h4>
+          <ul class="foot-list">
+            <li><a href="#">Memorias Anuales</a></li>
+            <li><a href="#">Plan Estratégico 2019–2025</a></li>
+            <li><a href="#">Plan Trienal 2023–2025</a></li>
+            <li><a href="#">Curriculum Institucional</a></li>
+            <li><a href="#">Política de salvaguarda y protección de Niños, Niñas y Adolescentes</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Nuestras redes sociales</h4>
+          <div class="socials">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 9h3V6h-3a3 3 0 0 0-3 3v3H8v3h3v6h3v-6h3l1-3h-4V9a1 1 0 0 1 1-1Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M22 12s0-3-0.6-4.4a3 3 0 0 0-2-2C17 5 12 5 12 5s-5 0-7.4.6a3 3 0 0 0-2 2C2 9 2 12 2 12s0 3 .6 4.4a3 3 0 0 0 2 2C7 19 12 19 12 19s5 0 7.4-.6a3 3 0 0 0 2-2C22 15 22 12 22 12Z" stroke="currentColor"/>
+                <path d="M10 9l5 3-5 3V9Z" stroke="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M14 3v4a6 6 0 0 0 6 6" stroke="currentColor"/>
+                <path d="M14 10a5 5 0 1 0 0 10" stroke="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container"><p class="copyright">Copyright © 2025 CCPAM</p></div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil
+    const hamb = document.getElementById('hamb');
+    const menu = document.querySelector('.menu');
+    hamb?.addEventListener('click', ()=>{
+      if(getComputedStyle(menu).display === 'none'){
+        menu.style.display = 'flex';
+        menu.style.flexDirection='column';
+        menu.style.gap='8px';
+        menu.style.background='#fff';
+        menu.style.position='absolute';
+        menu.style.top='64px';
+        menu.style.left='16px';
+        menu.style.right='16px';
+        menu.style.padding='12px';
+        menu.style.border='1px solid #E9ECEF';
+        menu.style.borderRadius='12px';
+      }else{
+        menu.style.display='';
+        menu.removeAttribute('style');
+      }
+    });
+  </script>
+</body></html>

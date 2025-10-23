@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programa de Promoción de la Mujer — CCPAM (Versión elegante)</title>
+
+  <!-- Favicon/logo -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="logoccpam.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logoccpam.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logoccpam.png">
+  <meta name="theme-color" content="#2B7A3D">
+
+  <!-- Tipos de letra (mismo set que identidad.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family:Playfair+Display:wght@600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{ --verde:#2B7A3D; --verde-osc:#1F5B2E; --gris:#4B4F55; --gris-2:#5E6270; --borde:#E9ECEF; --maxw:1280px; --shadow:0 8px 24px rgba(0,0,0,.06); --verde-pastel:#EAF4EE; --verde-titulo:#206A3C; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#fff;color:var(--gris);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.7}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:16px}
+
+    /* ===== Header (coherente con el resto) ===== */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--borde)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--verde-osc)}
+    .brand img{width:44px;height:44px;border-radius:10px}
+    .menu{display:none;gap:18px;align-items:center}
+    .menu>li{list-style:none;position:relative}
+    .menu>li>a{padding:8px 10px;border-radius:10px}
+    .menu>li:hover>a{background:#f7f9fb}
+    .submenu{position:absolute;left:0;top:120%;min-width:280px;background:#fff;border:1px solid var(--borde);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+    .menu>li:hover .submenu{display:block}
+    .submenu a{display:block;padding:8px 10px;border-radius:8px;color:var(--gris-2)}
+    .submenu a:hover{background:#f6f7f9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--verde);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .hamb{width:42px;height:42px;border-radius:12px;border:1px solid var(--borde);display:grid;place-items:center;background:#fff}
+    .hamb span{display:block;width:20px;height:2px;background:#111;margin:3px 0;border-radius:2px}
+    @media (min-width:900px){.menu{display:flex}.hamb{display:none}}
+
+    /* ===== Footer (coherente) ===== */
+    footer{background:#0E1A12;color:#CFE3D4;margin-top:32px}
+    .foot-wrap{border-top:1px solid #173321}
+    .foot-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0}
+    .foot-col{min-width:0}
+    .foot-title{color:#FFFFFF;margin:0 0 12px;font-weight:700}
+    .foot-list{list-style:none;padding:0;margin:0;line-height:1.9;word-break:break-word}
+    .foot-list a{color:#CFE3D4}
+    .foot-list a:hover{color:#FFFFFF}
+    .copyright{border-top:1px solid #173321;padding:14px 0;color:#9AB6A3;text-align:center;margin:0}
+    @media (min-width:900px){ .foot-grid{grid-template-columns:repeat(3, minmax(0,1fr)); align-items:start} .foot-col{padding-right:24px;border-right:1px solid #173321} .foot-col:last-child{border-right:none;padding-right:0} }
+
+    /* ===== HERO (verde suave + cursiva) ===== */
+    .hero{padding:28px 0 18px;background:#EAF5EE;border-bottom:1px solid var(--borde);text-align:center}
+    .h1{font-family:'Dancing Script', cursive;font-weight:700;color:#1F5B2E;font-size:clamp(32px,5vw,56px);line-height:1.06;margin:0}
+    .lead{font-family:'Dancing Script', cursive;color:#3b5d49;font-size:clamp(18px,3.2vw,30px);margin:4px 0 0}
+
+    /* Chips informativas */
+    .chips-bar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+    .chip{background:#F0F7F3;border:1px solid #D7E6DD;color:#1F5B2E;padding:.35rem .7rem;border-radius:999px;font-weight:700}
+    .quote-soft{background:#F6FBF8;border:1px solid #E1EFE7;border-radius:14px;padding:12px;text-align:center;font-weight:600;color:#1F4330}
+
+    /* ===== Bloques ===== */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
+    .bloque{padding:18px 0}
+    .card{background:#fff;border-radius:18px;padding:18px;border:1px solid #e6efe9;box-shadow:0 14px 36px rgba(0,0,0,.06)}
+    .text-justify{ text-align: justify }
+    .title{font-family:'Playfair Display',serif;color:var(--verde-titulo);font-weight:700;margin:0 0 10px;font-size:clamp(1.3rem,1rem + 1vw,2rem)}
+/* variante más verde para títulos */
+.title--green{color:#1F5B2E}
+/* panel verde elegante (en lugar de card blanca) */
+.panel{border-radius:18px;padding:18px;box-shadow:0 14px 36px rgba(0,0,0,.06)}
+.panel--green{background:#DDF3E7;border:1px solid #BFDCCD}
+.panel--green p{color:#1E2E24}
+
+    /* Grillas */
+    .grid4{display:grid;gap:14px}
+    @media(min-width:900px){.grid4{grid-template-columns:repeat(4,1fr)}}
+    .grid2{display:grid;gap:14px}
+    @media(min-width:900px){.grid2{grid-template-columns:repeat(2,1fr)}}
+
+    /* Cards de centros */
+    .pm-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;overflow:hidden;box-shadow:0 16px 46px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.05);transition:transform .3s ease, box-shadow .3s ease;border-top:6px solid var(--accent, #2B7A3D)}
+    .pm-card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(0,0,0,.1)}
+    .pm-card img{width:100%;height:240px;object-fit:cover}
+    .pm-body{padding:14px}
+    .pm-name{font-weight:800;color:var(--verde-osc)}
+    .pm-desc{color:var(--gris-2);margin-top:6px}
+
+    /* Componentes (tarjetas verdes elegantes) */
+    .comp-grid{display:grid;gap:14px}
+    @media(min-width:900px){.comp-grid{grid-template-columns:repeat(4,1fr)}}
+    .comp-card{background:#DDF3E7;border:1px solid #BFDCCD;border-radius:16px;padding:16px;box-shadow:0 10px 26px rgba(25,75,45,.08);position:relative;overflow:hidden}
+    .comp-card:nth-child(even){background:#CBE7D8;border-color:#A9D2BF}
+    .comp-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .comp-ico{width:44px;height:44px;border-radius:12px;background:#EAF5EE;display:grid;place-items:center;flex:0 0 auto}
+    .comp-ico svg{width:22px;height:22px;stroke:#1F5B2E;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .comp-title{margin:0;color:#1F5B2E;font-weight:800;letter-spacing:.2px}
+    .comp-title::after{content:"";display:block;width:120px;height:4px;border-radius:3px;margin-top:6px;background:linear-gradient(90deg,#1F5B2E,#4FAF7D);opacity:.95}
+    .comp-card:nth-child(even) .comp-title::after{background:linear-gradient(90deg,#1F5B2E,#2B7A3D)}
+    .comp-card p{margin:0;color:#334155;text-align:justify}
+
+    /* Galería */
+    .gallery{display:grid;gap:12px;margin-top:10px}
+    @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid rgba(0,0,0,.08);box-shadow:0 10px 26px rgba(0,0,0,.06)}
+    .gallery{display:grid;gap:12px;margin-top:10px}
+    @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid rgba(0,0,0,.08);box-shadow:0 10px 26px rgba(0,0,0,.06)}
+
+    .pm-top{position:fixed;right:14px;bottom:14px;z-index:20;background:var(--verde);color:#fff;border-radius:999px;padding:.7rem .9rem;text-decoration:none;border:2px solid rgba(0,0,0,.15)}
+  /* Colores de acento por tarjeta (vida y contraste suave) */
+.pm-card:nth-child(1){--accent:#2B7A3D}
+.pm-card:nth-child(2){--accent:#3E8E5A}
+.pm-card:nth-child(3){--accent:#55A27B}
+.pm-card:nth-child(4){--accent:#79BFA0}
+
+/* ===== Galería con pies en verde elegante ===== */
+    .gallery{display:grid;gap:14px;margin-top:12px}
+    @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
+    .gallery figure{margin:0}
+    .gallery .ph{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,.08);box-shadow:0 10px 26px rgba(0,0,0,.06)}
+.gallery .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(16,48,32,.72) 18%, rgba(16,48,32,.35) 45%, rgba(16,48,32,0) 60%);z-index:1}
+    .gallery .ph img{width:100%;height:100%;object-fit:cover;display:block}
+    .gallery .cap{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;color:#EAF5EE;font-weight:700;font-size:.95rem;line-height:1.35;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+    .gallery .cap .tag{display:inline-block;margin-left:.5rem;background:rgba(221,243,231,.92);border:1px solid #A9D2BF;color:#1F5B2E;border-radius:999px;padding:.1rem .5rem;font-size:.78rem;font-weight:800;vertical-align:middle}
+    /* Lista de centros dentro del panel */
+  .centros-list{margin:10px 0 0 1rem;padding-left:1rem;color:#1F5B2E}
+  .centros-list li{margin:.25rem 0;font-weight:600}
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Principal">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoccpam.png" alt="CCPAM">
+        <span>CCPAM</span>
+      </div>
+      <ul class="menu" aria-label="Navegación principal">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a>
+          <div class="submenu" role="menu" aria-label="Submenú Quiénes somos">
+            <a href="historia.html">Historia</a>
+            <a href="identidad.html">Identidad institucional</a>
+            <a href="organigrama.html">Organigrama</a>
+            <a href="ubicacion.html">Ubicación</a>
+          </div>
+        </li>
+        <li><a href="#">Nuestro trabajo</a>
+          <div class="submenu" role="menu" aria-label="Submenú Nuestro trabajo">
+            <a href="programamujer.html" aria-current="page">Programa de Promoción de la Mujer</a>
+            <a href="tejidos.html">Centro de Tejidos a Mano y Máquina</a>
+            <a href="telares.html">Centros de Tejidos Artesanales en Telares</a>
+            <a href="corte_confeccion.html">Centros de Corte y Confección</a>
+            <a href="velas.html">Centro de Velas y de Cera de Pisos</a>
+            <a href="guarderia.html">Guardería Infantil</a>
+          </div>
+        </li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn" href="https://hwbolivien.weebly.com/" target="_blank" rel="noopener" aria-label="Donar">Donar</a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="arriba">
+      <div class="container">
+        <h1 class="h1">Programa de Promoción de la Mujer</h1>
+        <p class="lead">Capacitación, autonomía y transformación social.</p>
+      </div>
+    </section>
+
+
+    <!-- PRESENTACIÓN (introducción del programa) -->
+    <section class="bloque">
+      <div class="wrap">
+       
+        <div class="panel panel--green text-justify">
+          <p>El <strong>Programa de Promoción de la Mujer</strong> del CCPAM fortalece las <strong>capacidades técnicas y productivas</strong> de mujeres, principalmente migrantes y de escasos recursos de los barrios periurbanos de Sucre. Mediante procesos formativos de calidad en oficios como <strong>tejidos a mano y en máquina</strong>, <strong>telares artesanales</strong>, <strong>corte y confección</strong> y <strong>elaboración de velas y cera de pisos</strong>, el programa impulsa la generación de ingresos y la <strong>autonomía económica</strong>.</p>
+          <p>La propuesta se complementa con <strong>acompañamiento humano</strong>, <strong>acceso a servicios de salud</strong>, <strong>asesoramiento personal y jurídico</strong> y <strong>formación empresarial</strong> (contabilidad, costos, mercadeo y microcrédito solidario). Todo ello bajo un <strong>enfoque de derechos, equidad de género</strong> y <strong>desarrollo comunitario</strong>, promoviendo la dignidad, la autoestima y el ejercicio pleno de la ciudadanía.</p>
+          <ul class="centros-list">
+            <li>Centro de Tejidos a Mano y en Máquina</li>
+            <li>Centros de Tejidos Artesanales en Telares</li>
+            <li>Centros de Corte y Confección</li>
+            <li>Centro de Velas y de Cera de Pisos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BASE DEL PROGRAMA -->
+    
+
+    <!-- PRINCIPIOS (íconos elegantes) -->
+    
+
+    <!-- CENTROS (2×2, fotos grandes) -->
+    <section class="bloque" id="centros">
+      <div class="wrap">
+        <h2 class="title">Centros de capacitación</h2>
+        <div class="grid4 pm-cards">
+          <article class="pm-card">
+            <img src="programamujer/tejidos.jpg" alt="Tejidos a Mano y en Máquina" />
+            <div class="pm-body">
+              <div class="pm-name">Tejidos a Mano y en Máquina</div>
+              <p class="pm-desc">Confección artesanal y mecanizada de prendas y accesorios.</p>
+            </div>
+          </article>
+          <article class="pm-card">
+            <img src="programamujer/telares.jpg" alt="Tejidos Artesanales en Telares" />
+            <div class="pm-body">
+              <div class="pm-name">Tejidos Artesanales en Telares</div>
+              <p class="pm-desc">Rescate de técnicas e identidad cultural andina.</p>
+            </div>
+          </article>
+          <article class="pm-card">
+            <img src="programamujer/corte.jpg" alt="Corte y Confección" />
+            <div class="pm-body">
+              <div class="pm-name">Corte y Confección</div>
+              <p class="pm-desc">Patronaje, costura y uniformes escolares e institucionales.</p>
+            </div>
+          </article>
+          <article class="pm-card">
+            <img src="programamujer/velas.jpg" alt="Velas y Cera para Pisos" />
+            <div class="pm-body">
+              <div class="pm-name">Velas y Cera para Pisos</div>
+              <p class="pm-desc">Velas artesanales y productos de limpieza.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+   <!-- GUARDERÍA INFANTIL -->
+    <section class="bloque">
+      <div class="wrap">
+        <h2 class="title">Guardería infantil</h2>
+        <div class="card text-justify">
+          <p>En la guardería, las niñas y los niños de las mujeres trabajadoras reciben una <strong>promoción y educación preescolar</strong> y <strong>apoyo en sus tareas escolares</strong> durante las horas de trabajo de sus madres.</p>
+        </div>
+      </div>
+    </section>
+    <!-- COMPONENTES (tarjetas verdes con subrayado elegante e iconos) -->
+    <section class="bloque">
+      <div class="wrap">
+        <h2 class="title">Componentes complementarios</h2>
+        <div class="comp-grid">
+          <article class="comp-card">
+            <div class="comp-head">
+              <div class="comp-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 6h14l-2 10H8L6 6Z"/><path d="M6 6l-1-3H3"/><circle cx="9" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>
+              </div>
+              <h3 class="comp-title">Comercialización</h3>
+            </div>
+            <p>Los centros disponen de una <strong>tienda en el centro de la ciudad</strong> para la comercialización de sus productos con fino acabado. Mantienen contactos con mercados locales, nacionales e internacionales. Las mujeres venden sus productos en <strong>exposiciones</strong>, <strong>ferias artesanales</strong> y también a <strong>iniciativa y cuenta propia</strong>.</p>
+          </article>
+
+          <article class="comp-card">
+            <div class="comp-head">
+              <div class="comp-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21C7 21 3 17 3 12S7 3 12 3s9 4 9 9-4 9-9 9Z"/><path d="M12 8v8m-4-4h8"/></svg>
+              </div>
+              <h3 class="comp-title">Acceso a servicios médicos</h3>
+            </div>
+            <p>Con el <strong>programa de salud</strong>, las mujeres y sus niños(as) reciben acceso a los servicios médicos del <strong>Hospital Popular del IPTK</strong> y se capacitan en temas de <strong>salud preventiva</strong> y <strong>planificación familiar</strong>.</p>
+          </article>
+
+          <article class="comp-card">
+            <div class="comp-head">
+              <div class="comp-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20c4.4 0 8-2 8-4.5S16.4 11 12 11s-8 2-8 4.5S7.6 20 12 20Z"/><path d="M12 11a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 11Z"/></svg>
+              </div>
+              <h3 class="comp-title">Asesoramiento</h3>
+            </div>
+            <p>Asesoramiento en cuestiones personales, apoyo psicológico y <strong>jurídico</strong> sobre <strong>roles</strong>, <strong>sexualidad</strong>, <strong>salud preventiva</strong>, <strong>planificación familiar</strong> y <strong>derechos de las mujeres</strong>, además de fortalecer la <strong>conciencia y seguridad de sí mismo</strong> (<em>empoderamiento</em>).</p>
+          </article>
+
+          <article class="comp-card">
+            <div class="comp-head">
+              <div class="comp-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+              </div>
+              <h3 class="comp-title">Conocimientos empresariales</h3>
+            </div>
+            <p><strong>Contabilidad</strong>, <strong>cálculo de costos</strong>, <strong>registros</strong>, <strong>mercadeo</strong> y <strong>técnicas de venta</strong>. Además, apoyo con <strong>microcréditos</strong> sin interés para <strong>maquinaria</strong> y <strong>materia prima</strong>, con miras a talleres o microempresas familiares.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <!-- RESULTADOS E IMPACTO (galería) -->
+    <section class="bloque">
+      <div class="wrap">
+       
+        <div class="gallery">
+          <figure>
+            <div class="ph">
+              <img src="programamujer/formacion.jpg" alt="Formación técnica y acompañamiento">
+              <div class="cap">Formación técnica y acompañamiento humano <span class="tag">oficio</span></div>
+            </div>
+          </figure>
+          <figure>
+            <div class="ph">
+              <img src="programamujer/atencion.jpg" alt="Atención integral y redes de apoyo">
+              <div class="cap">Atención integral y redes de apoyo <span class="tag">apoyo</span></div>
+            </div>
+          </figure>
+          <figure>
+            <div class="ph">
+              <img src="programamujer/feria.jpg" alt="Comercialización en ferias y tienda propia">
+              <div class="cap">Comercialización en ferias y tienda propia <span class="tag">mercado</span></div>
+            </div>
+          </figure>
+          <figure>
+            <div class="ph">
+              <img src="programamujer/guarderia.jpg" alt="Guardería infantil que acompaña el trabajo">
+              <div class="cap">Guardería infantil que acompaña el trabajo <span class="tag">cuidado</span></div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <a class="pm-top" href="#arriba" aria-label="Volver arriba">↑</a>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto" aria-label="Pie de página">
+    <div class="foot-wrap">
+      <div class="container foot-grid">
+        <div class="foot-col">
+          <h4 class="foot-title">Información de contacto</h4>
+          <ul class="foot-list">
+            <li>Calle Padre Sanauja #2</li>
+            <li>(+591) 72887536</li>
+            <li>Sucre — Bolivia</li>
+            <li>Horario: Lunes a Viernes</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Documentos de interés</h4>
+          <ul class="foot-list">
+            <li><a href="#">Memorias Anuales</a></li>
+            <li><a href="#">Plan Estratégico 2019–2025</a></li>
+            <li><a href="#">Plan Trienal 2023–2025</a></li>
+            <li><a href="#">Curriculum Institucional</a></li>
+            <li><a href="#">Política de salvaguarda y protección de Niños, Niñas y Adolescentes</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 class="foot-title">Nuestras redes sociales</h4>
+          <ul class="foot-list">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container"><p class="copyright">Copyright © 2025 CCPAM</p></div>
+    </div>
+  </footer>
+
+  <!-- Menú móvil -->
+  <script>
+    const hamb = document.getElementById('hamb');
+    const menu = document.querySelector('.menu');
+    hamb?.addEventListener('click', ()=>{
+      if(getComputedStyle(menu).display === 'none'){
+        menu.style.display = 'flex';
+        menu.style.flexDirection='column';
+        menu.style.gap='8px';
+        menu.style.background='#fff';
+        menu.style.position='absolute';
+        menu.style.top='64px';
+        menu.style.left='16px';
+        menu.style.right='16px';
+        menu.style.padding='12px';
+        menu.style.border='1px solid #E9ECEF';
+        menu.style.borderRadius='12px';
+      }else{
+        menu.style.display='';
+        menu.removeAttribute('style');
+      }
+    });
+  </script>
+</body>
+</html>
