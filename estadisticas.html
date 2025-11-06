@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estadísticas e Impacto — CCPAM (2005–2025)</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="logoccpam.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logoccpam.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logoccpam.png">
+  <meta name="theme-color" content="#2B7A3D">
+  
+  <!-- Tipografías (igual que el sitio) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Dancing+Script:wght@700&display=optional" rel="stylesheet">
+
+  <style>
+    :root{--verde:#2B7A3D;--verde-osc:#1F5B2E;--crema:#F8F5EF;--gris:#2B2B2B;--gris-2:#5E6270;--borde:#E9ECEF;--maxw:1200px;--rad:16px;--shadow:0 10px 26px rgba(0,0,0,.06);--foot-line:#173321;--rojo:#9A1C1C;--amarillo:#8A6D1D;}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#fff;color:var(--gris);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;height:auto;display:block;border-radius:12px}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:16px}
+
+    /* Header (idéntico al sitio) */
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--borde)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--verde-osc)}
+    .brand img{width:44px;height:44px;border-radius:10px}
+    .menu{display:none;gap:18px;align-items:center}
+    .menu>li{list-style:none;position:relative}
+    .menu>li>a{padding:8px 10px;border-radius:10px}
+    .menu>li:hover>a{background:#f7f9fb}
+    .submenu{position:absolute;left:0;top:120%;min-width:280px;background:#fff;border:1px solid var(--borde);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+    .menu>li:hover .submenu{display:block}
+    .submenu a{display:block;padding:8px 10px;border-radius:8px;color:var(--gris-2)}
+    .submenu a:hover{background:#f6f7f9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--verde);color:#fff;font-weight:700;box-shadow:var(--shadow)}
+    .btn--ghost{background:transparent;color:var(--verde);border:2px solid var(--verde)}
+    .hamb{width:42px;height:42px;border:1px solid var(--borde);border-radius:12px;display:grid;place-items:center;background:#fff}
+    .hamb span{display:block;width:20px;height:2px;background:#111;margin:3px 0;border-radius:2px}
+
+    @media(min-width:900px){.menu{display:flex}.hamb{display:none}}
+
+    /* Hero */
+    .hero{background:#EAF5EE;border-bottom:1px solid #E2F1E7}
+    .hero .wrap{max-width:var(--maxw);margin:0 auto;padding:46px 16px 28px;text-align:center}
+    .hero h1{font-family:'Dancing Script',cursive;margin:0;color:var(--verde-osc);font-weight:700;font-size:clamp(30px,4.6vw,56px);letter-spacing:.2px}
+    .hero p{margin:.4rem auto 0;max-width:800px;color:#3f5d4a}
+
+    /* Bloques */
+    section{padding:28px 0}
+    .block{background:#fff;border:1px solid var(--borde);border-radius:16px;box-shadow:var(--shadow);padding:16px}
+    .title{font-weight:800;color:var(--verde-osc);margin:0 0 8px}
+    .muted{color:var(--gris-2)}
+
+    /* KPIs */
+    .kpi-grid{display:grid;gap:12px}
+    @media(min-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+    .kpi{background:#F1FAF5;border:1px solid #CBE7D8;border-radius:14px;padding:16px;text-align:center}
+    .kpi .v{display:block;font-weight:800;font-size:clamp(20px,3vw,28px);color:var(--verde-osc)}
+    .kpi .l{display:block;font-size:.95rem;color:#475569}
+
+    /* Tarjetas talleres 2x2 */
+    .grid{display:grid;gap:14px}
+    .grid-2{grid-template-columns:1fr}
+    @media(min-width:900px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:#ffffff;border:1px solid #e6e6e6;border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px;color:var(--verde-osc)}
+
+    /* Charts */
+    .chart{width:100%;height:320px;border:1px solid #E6EFE9;border-radius:12px;background:#fff;box-shadow:var(--shadow);padding:8px}
+    .chart svg{width:100%;height:100%;display:block}
+    .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;color:#374151;margin-top:8px}
+    .legend span{display:inline-flex;gap:6px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:2px;background:#2B7A3D;display:inline-block}
+    .dot--b{background:#1F5B2E}
+
+    /* Tabla simple */
+    table{width:100%;border-collapse:collapse;font-size:.95rem}
+    th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}
+    thead th{color:#1F5B2E;border-bottom:2px solid #cfe3d4;background:#F6FBF8}
+
+    /* Footer */
+    footer{background:#0E1A12;color:#CFE3D4;margin-top:24px}
+    .foot-wrap{border-top:1px solid var(--foot-line)}
+    .foot-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:40px 0}
+    .foot-title{color:#FFFFFF;margin:0 0 12px;font-weight:700}
+    .foot-list{list-style:none;padding:0;margin:0;line-height:1.9}
+    .copyright{border-top:1px solid var(--foot-line);padding:14px 0;color:#9AB6A3;text-align:center}
+
+    @media(min-width:900px){
+      .foot-grid{grid-template-columns:repeat(3, minmax(0,1fr)); align-items:start}
+      .menu{display:flex}
+    }
+    /* Nota aclaratoria de proyección */
+    .note{font-size:.92rem;color:#475569;background:#FFF8DB;border:1px solid #F4E4A7;border-radius:12px;padding:10px;margin:8px 0}
+    /* Paletas por centro */
+  .card--tejidos{border-color:#D6E8FA;background:#F4F9FF}
+  .card--telares{border-color:#F9E0B8;background:#FFF7E9}
+  .card--corte{border-color:#E7D6F2;background:#FBF5FF}
+  .card--velas{border-color:#D5F0E4;background:#F3FCF8}
+  .badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;font-weight:800;font-size:.85rem}
+  .badge--tejidos{background:#2F7FD8;color:#fff}
+  .badge--telares{background:#D58B1D;color:#fff}
+  .badge--corte{background:#8B5BD8;color:#fff}
+  .badge--velas{background:#1E9E71;color:#fff}
+  .kpi-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 4px}
+  .kpi-compact .item{background:#fff;border:1px solid #E6EFE9;border-radius:10px;padding:8px;text-align:center;box-shadow:var(--shadow)}
+  .kpi-compact .n{display:block;font-weight:800;color:#1F5B2E}
+  .kpi-compact .l{display:block;font-size:.82rem;color:#61707a}
+  .legend--mini{font-size:.85rem;margin-top:6px;color:#46535c}
+  .chart .label{font-size:10px;fill:#3a4650;opacity:.9}
+</style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header aria-label="Principal">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoccpam.png" alt="CCPAM">
+        <span>CCPAM</span>
+      </div>
+      <ul class="menu" aria-label="Navegación principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a>
+          <div class="submenu" role="menu" aria-label="Submenú Quiénes somos">
+            <a href="historia.html">Historia</a>
+            <a href="identidad.html">Identidad institucional</a>
+            <a href="organigrama.html">Organigrama</a>
+            <a href="ubicacion.html">Ubicación</a>
+          </div>
+        </li>
+        <li><a href="#">Nuestro trabajo</a>
+          <div class="submenu" role="menu" aria-label="Submenú Nuestro trabajo">
+            <a href="programamujer.html">Programa de Promoción de la Mujer</a>
+            <a href="tejidos.html">Centro de Tejidos a Mano y Máquina</a>
+            <a href="telares.html">Centros de Tejidos Artesanales en Telares</a>
+            <a href="corte.html">Centros de Corte y Confección</a>
+            <a href="velas.html">Centro de Velas y de Cera de Pisos</a>
+            <a href="guarderia.html">Guardería Infantil</a>
+          </div>
+        </li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a class="btn" href="https://hwbolivien.weebly.com/" target="_blank" rel="noopener">Donar</a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Encabezado">
+    <div class="wrap">
+      <h1>Estadísticas e Impacto (2005–2025)</h1>
+      <p>Desde <strong>2005</strong> (personería jurídica): resumen histórico, proyección 2025 y detalle por talleres de formación (tejidos, telares, corte y confección, velas/cera), con foco en <strong>mujeres capacitadas</strong>.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- KPIs -->
+    <section>
+      <div class="kpi-grid">
+        <div class="kpi"><span class="v" id="kpi-years">—</span><span class="l">Años de funcionamiento</span></div>
+        <div class="kpi"><span class="v" id="kpi-women">—</span><span class="l">Mujeres formadas (acum.)</span></div><div class="kpi"><span class="v" id="kpi-2025">—</span><span class="l">Meta / 2025 (mujeres)</span></div>
+      </div>
+      <p class="note">Series estimadas de mujeres capacitadas por año (2005–2025) y distribución por talleres. Cuando dispongas de cifras oficiales, reemplaza estos supuestos en la sección <strong>CONFIGURACIÓN</strong> del script.</p>
+    </section>
+
+    <!-- GRÁFICA MUJERES POR AÑO -->
+    <section>
+      <h2 class="title">Mujeres atendidas por año (Total)</h2>
+      <div class="block">
+        <div class="chart" id="chart-mujeres"></div>
+        <div class="legend"><span><i class="dot"></i> Total anual</span></div>
+      </div>
+    </section>
+
+    <!-- TALLERES 2x2 -->
+    <section>
+      <h2 class="title">Detalle por talleres (acumulado y 2025)</h2>
+      <div class="grid grid-2">
+        <article class="card card--tejidos" id="card-tejidos">
+  <h3>Tejidos a Mano y en Máquina <span class="badge badge--tejidos">Centro</span></h3>
+  <p class="muted" id="tejidos-resumen">—</p>
+  <div class="kpi-compact">
+    <div class="item"><span class="n" id="tejidos-acum">—</span><span class="l">Acumulado</span></div>
+    <div class="item"><span class="n" id="tejidos-2025">—</span><span class="l">Año 2025</span></div>
+    <div class="item"><span class="n" id="tejidos-prom">—</span><span class="l">Promedio 12a</span></div>
+  </div>
+  <div class="chart" id="chart-tejidos"></div>
+  <div class="legend legend--mini"><span><i class="dot" style="background:#2F7FD8"></i> Participantes por año</span></div>
+</article>
+        <article class="card card--telares" id="card-telares">
+  <h3>Telares Artesanales <span class="badge badge--telares">Centro</span></h3>
+  <p class="muted" id="telares-resumen">—</p>
+  <div class="kpi-compact">
+    <div class="item"><span class="n" id="telares-acum">—</span><span class="l">Acumulado</span></div>
+    <div class="item"><span class="n" id="telares-2025">—</span><span class="l">Año 2025</span></div>
+    <div class="item"><span class="n" id="telares-prom">—</span><span class="l">Promedio 12a</span></div>
+  </div>
+  <div class="chart" id="chart-telares"></div>
+  <div class="legend legend--mini"><span><i class="dot" style="background:#D58B1D"></i> Participantes por año</span></div>
+</article>
+        <article class="card card--corte" id="card-corte">
+  <h3>Corte y Confección <span class="badge badge--corte">Centro</span></h3>
+  <p class="muted" id="corte-resumen">—</p>
+  <div class="kpi-compact">
+    <div class="item"><span class="n" id="corte-acum">—</span><span class="l">Acumulado</span></div>
+    <div class="item"><span class="n" id="corte-2025">—</span><span class="l">Año 2025</span></div>
+    <div class="item"><span class="n" id="corte-prom">—</span><span class="l">Promedio 12a</span></div>
+  </div>
+  <div class="chart" id="chart-corte"></div>
+  <div class="legend legend--mini"><span><i class="dot" style="background:#8B5BD8"></i> Participantes por año</span></div>
+</article>
+        <article class="card card--velas" id="card-velas">
+  <h3>Velas y Cera de Pisos <span class="badge badge--velas">Centro</span></h3>
+  <p class="muted" id="velas-resumen">—</p>
+  <div class="kpi-compact">
+    <div class="item"><span class="n" id="velas-acum">—</span><span class="l">Acumulado</span></div>
+    <div class="item"><span class="n" id="velas-2025">—</span><span class="l">Año 2025</span></div>
+    <div class="item"><span class="n" id="velas-prom">—</span><span class="l">Promedio 12a</span></div>
+  </div>
+  <div class="chart" id="chart-velas"></div>
+  <div class="legend legend--mini"><span><i class="dot" style="background:#1E9E71"></i> Participantes por año</span></div>
+</article>
+      </div>
+    </section>
+
+    <!-- INGRESOS -->
+    
+
+    <!-- TABLA RESUMEN -->
+    <section>
+      <h2 class="title">Tabla resumen (2005–2025)</h2>
+      <div class="block" style="overflow:auto">
+        <table id="tabla"></table>
+      </div>
+    </section>
+    <!-- FUENTES DE REFERENCIA (resumen) -->
+  
+</main>
+
+  <!-- FOOTER (mismo del sitio) -->
+  <footer id="contacto" aria-label="Pie de página">
+    <div class="foot-wrap">
+      <div class="container foot-grid">
+        <div>
+          <h4 class="foot-title">Información de contacto</h4>
+          <ul class="foot-list">
+            <li>Calle Padre Sanauja #2</li>
+            <li>(+591) 72887536</li>
+            <li>Sucre — Bolivia</li>
+            <li>Horario: Lunes a Viernes</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="foot-title">Documentos de interés</h4>
+          <ul class="foot-list">
+            <li><a href="#">Memorias Anuales</a></li>
+            <li><a href="#">Plan Estratégico 2019–2025</a></li>
+            <li><a href="#">Plan Trienal 2023–2025</a></li>
+            <li><a href="#">Curriculum Institucional</a></li>
+            <li><a href="#">Política de salvaguarda y protección de Niños, Niñas y Adolescentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="foot-title">Nuestras redes sociales</h4>
+          <ul class="foot-list">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container"><p class="copyright">Copyright © 2025 CCPAM</p></div>
+    </div>
+  </footer>
+
+  <script>
+  // ====== CONFIGURACIÓN (puedes ajustar estos supuestos más adelante) ======
+  const ANIO_INICIO = 2005;
+  const ANIO_ACTUAL = 2025;
+  const BASE_MUJERES = 70;          // punto de partida (mujeres/año)
+  const CREC_ANUAL   = 0.06;         // ~6% de crecimiento tendencial
+  const SHOCK = {from:2020, to:2021, factor:0.82};
+  const RECUP = {from:2022, to:2025, factor:1.05};
+
+  // Mezcla por talleres (suma 1.0)
+  const MIX = {tejidos:0.30, telares:0.25, corte:0.25, velas:0.20};
+
+  // ====== GENERACIÓN DE DATOS ======
+  const years = Array.from({length: ANIO_ACTUAL-ANIO_INICIO+1}, (_,i)=>ANIO_INICIO+i);
+
+  // Generador pseudo-determinístico (para que no cambie en cada refresh)
+  function jitter(i){ return 0.97 + (Math.sin(i*12.9898)*43758.5453 % 0.06) } // ±3%
+
+  const mujeresTotales = years.map((y,idx)=>{
+    let v = BASE_MUJERES * Math.pow(1+CREC_ANUAL, idx) * jitter(idx);
+    if(y>=SHOCK.from && y<=SHOCK.to) v *= SHOCK.factor;
+    if(y>=RECUP.from && y<=RECUP.to) v *= RECUP.factor;
+    return Math.round(v);
+  });
+
+  const byTaller = years.map((y,i)=>({
+    year:y,
+    tejidos: Math.round(mujeresTotales[i]*MIX.tejidos),
+    telares: Math.round(mujeresTotales[i]*MIX.telares),
+    corte:   Math.round(mujeresTotales[i]*MIX.corte),
+    velas:   Math.round(mujeresTotales[i]*MIX.velas)
+  }));
+
+  // ====== KPIs ======
+  const totalAnios   = years.length;
+  const totalMujeres = mujeresTotales.reduce((a,b)=>a+b,0);
+  const meta2025     = mujeresTotales[mujeresTotales.length-1];
+  const num = n => n.toLocaleString('es-BO');
+
+  document.getElementById('kpi-years').textContent  = totalAnios;
+  document.getElementById('kpi-women').textContent  = num(totalMujeres);
+  document.getElementById('kpi-2025').textContent   = num(meta2025);
+
+  // ====== DIBUJADORES ======
+  function drawLineChart(el, series, color='#2B7A3D'){
+    const w = el.clientWidth || 600, h = el.clientHeight || 320;
+    const pad = 36;
+    const maxVal = Math.max(...series);
+    const minVal = Math.min(0, ...series);
+    const x = i => pad + (w-2*pad)*(i/(series.length-1));
+    const y = v => h-pad - (h-2*pad)*((v-minVal)/(maxVal-minVal || 1));
+
+    let d='';
+    series.forEach((v,i)=>{ d += (i? 'L':'M') + x(i) + ' ' + y(v) + ' '; });
+
+    let grid='';
+    for(let i=0;i<=4;i++){
+      const gy = pad + (h-2*pad)*(i/4);
+      grid += `<line x1="${pad}" y1="${gy}" x2="${w-pad}" y2="${gy}" stroke="#eef2f7"/>`;
+    }
+
+    const circles = series.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="2.6" fill="${color}"/>`).join('');
+    const labels  = series.map((v,i)=>`<text class="label" x="${x(i)}" y="${y(v)-6}" text-anchor="middle">${v}</text>`).join('');
+
+    el.innerHTML = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+      <rect x="0" y="0" width="${w}" height="${h}" fill="#fff" rx="10"/>
+      ${grid}
+      <path d="${d}" fill="none" stroke="${color}" stroke-width="2.5"/>
+      ${circles}
+      ${labels}
+    </svg>`;
+  }
+
+  function drawBars(el, series, color='#1F5B2E'){
+    const w = el.clientWidth || 600, h = el.clientHeight || 320;
+    const pad = 36;
+    const maxVal = Math.max(...series.map(s=>s.v));
+    const slot = (w-2*pad)/series.length;
+    const bw = slot*0.66;
+
+    let grid='';
+    for(let i=0;i<=4;i++){
+      const gy = pad + (h-2*pad)*(i/4);
+      grid += `<line x1="${pad}" y1="${gy}" x2="${w-pad}" y2="${gy}" stroke="#eef2f7"/>`;
+    }
+
+    let bars='', labels='';
+    series.forEach((s,idx)=>{
+      const x = pad + idx*slot + (slot-bw)/2;
+      const barH = (h-2*pad) * (s.v/(maxVal||1));
+      const y = h-pad - barH;
+      bars   += `<rect x="${x}" y="${y}" width="${bw}" height="${barH}" fill="${color}" rx="6"/>`;
+      labels += `<text class="label" x="${x + bw/2}" y="${y-6}" text-anchor="middle">${s.v}</text>`;
+    });
+
+    el.innerHTML = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="g${el.id}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="${color}" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="${color}" stop-opacity="0.55"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="${w}" height="${h}" fill="#fff" rx="10"/>
+      ${grid}
+      ${bars.replaceAll(color, `url(#g${el.id})`)}
+      ${labels}
+    </svg>`;
+  }
+
+  // ====== RENDER ======
+  // Línea total (2005–2025)
+  drawLineChart(document.getElementById('chart-mujeres'), mujeresTotales);
+
+  // Barras últimos 12 años por taller
+  const lastN = 12;
+  const cutIdx = Math.max(0, years.length-lastN);
+  const yrs12 = years.slice(cutIdx);
+  const data12 = byTaller.slice(cutIdx);
+
+  const C_TEJ = '#2F7FD8';
+  const C_TEL = '#D58B1D';
+  const C_COR = '#8B5BD8';
+  const C_VEL = '#1E9E71';
+
+  drawBars(document.getElementById('chart-tejidos'), data12.map((r,i)=>({label:yrs12[i], v:r.tejidos})), C_TEJ);
+  drawBars(document.getElementById('chart-telares'), data12.map((r,i)=>({label:yrs12[i], v:r.telares})), C_TEL);
+  drawBars(document.getElementById('chart-corte'),   data12.map((r,i)=>({label:yrs12[i], v:r.corte})),   C_COR);
+  drawBars(document.getElementById('chart-velas'),   data12.map((r,i)=>({label:yrs12[i], v:r.velas})),   C_VEL);
+
+  // Resúmenes
+  const sum = arr => arr.reduce((a,b)=>a+b,0);
+  const v2025 = byTaller[byTaller.length-1];
+  const prom  = arr => Math.round(sum(arr)/arr.length);
+
+  const acTejidos = sum(byTaller.map(r=>r.tejidos));
+  const acTelares = sum(byTaller.map(r=>r.telares));
+  const acCorte   = sum(byTaller.map(r=>r.corte));
+  const acVelas   = sum(byTaller.map(r=>r.velas));
+
+  document.getElementById('tejidos-resumen').textContent = 'Acumulado y últimos 12 años.';
+  document.getElementById('tejidos-acum').textContent    = num(acTejidos);
+  document.getElementById('tejidos-2025').textContent    = num(v2025.tejidos);
+  document.getElementById('tejidos-prom').textContent    = num(prom(data12.map(r=>r.tejidos)));
+
+  document.getElementById('telares-resumen').textContent = 'Acumulado y últimos 12 años.';
+  document.getElementById('telares-acum').textContent    = num(acTelares);
+  document.getElementById('telares-2025').textContent    = num(v2025.telares);
+  document.getElementById('telares-prom').textContent    = num(prom(data12.map(r=>r.telares)));
+
+  document.getElementById('corte-resumen').textContent   = 'Acumulado y últimos 12 años.';
+  document.getElementById('corte-acum').textContent      = num(acCorte);
+  document.getElementById('corte-2025').textContent      = num(v2025.corte);
+  document.getElementById('corte-prom').textContent      = num(prom(data12.map(r=>r.corte)));
+
+  document.getElementById('velas-resumen').textContent   = 'Acumulado y últimos 12 años.';
+  document.getElementById('velas-acum').textContent      = num(acVelas);
+  document.getElementById('velas-2025').textContent      = num(v2025.velas);
+  document.getElementById('velas-prom').textContent      = num(prom(data12.map(r=>r.velas)));
+
+  // ====== TABLA COMPLETA ======
+  const tbl = document.getElementById('tabla');
+  tbl.innerHTML = `
+    <thead>
+      <tr>
+        <th>Año</th>
+        <th>Total mujeres</th>
+        <th>Tejidos</th>
+        <th>Telares</th>
+        <th>Corte y confección</th>
+        <th>Velas/cera</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${years.map((y,i)=>`
+        <tr>
+          <td>${y}</td>
+          <td>${num(mujeresTotales[i])}</td>
+          <td>${num(byTaller[i].tejidos)}</td>
+          <td>${num(byTaller[i].telares)}</td>
+          <td>${num(byTaller[i].corte)}</td>
+          <td>${num(byTaller[i].velas)}</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  `;
+
+  // ====== MENÚ MÓVIL ======
+  const hamb = document.getElementById('hamb');
+  const menu = document.querySelector('.menu');
+  hamb?.addEventListener('click', ()=>{
+    if(getComputedStyle(menu).display === 'none'){
+      menu.style.display = 'flex';
+      menu.style.flexDirection='column';
+      menu.style.gap='8px';
+      menu.style.background='#fff';
+      menu.style.position='absolute';
+      menu.style.top='64px';
+      menu.style.left='16px';
+      menu.style.right='16px';
+      menu.style.padding='12px';
+      menu.style.border='1px solid #E9ECEF';
+      menu.style.borderRadius='12px';
+    }else{
+      menu.style.display='';
+      menu.removeAttribute('style');
+    }
+  });
+
+  // Redibujar al cambiar tamaño
+  window.addEventListener('resize', ()=>{
+    drawLineChart(document.getElementById('chart-mujeres'), mujeresTotales);
+    drawBars(document.getElementById('chart-tejidos'), data12.map((r,i)=>({label:yrs12[i], v:r.tejidos})), C_TEJ);
+    drawBars(document.getElementById('chart-telares'), data12.map((r,i)=>({label:yrs12[i], v:r.telares})), C_TEL);
+    drawBars(document.getElementById('chart-corte'),   data12.map((r,i)=>({label:yrs12[i], v:r.corte})),   C_COR);
+    drawBars(document.getElementById('chart-velas'),   data12.map((r,i)=>({label:yrs12[i], v:r.velas})),   C_VEL);
+  });
+</script>
+</body>
+</html>
